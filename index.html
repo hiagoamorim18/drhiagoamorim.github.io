@@ -1,31 +1,1561 @@
-<!DOCTYPE html> <html lang="pt-BR"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0">h <title>Dr. Hiago Amorim | Psiquiatria Nutricional & Lifestyle Medicine</title> <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"> <style> :root { --navy: #0D2137;h --navy-mid: #163550; --teal: #1A7A8A; --teal-light: #2A9EAF; --cream: #F8F3EA; --cream-dark: #EDE8DC; --gold: #C8A84B; --gold-light: #E2C472; --text: #1A2B3C; --text-light: #4A6070; --white: #FFFFFF; } *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; } html { scroll-behavior: smooth; } body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text); overflow-x: hidden; } /* ===== NAVBAR ===== */ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 20px 5%; display: flex; align-items: center; justify-content: space-between; background: rgba(13, 33, 55, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(200, 168, 75, 0.2); transition: all 0.3s ease; } .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--cream); letter-spacing: 0.02em; } .nav-logo span { display: block; font-family: 'DM Sans', sans-serif; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-top: 2px; } .nav-links { display: flex; gap: 36px; list-style: none; } .nav-links a { font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(248,243,234,0.75); text-decoration: none; transition: color 0.2s; } .nav-links a:hover { color: var(--gold); } .nav-cta { background: var(--gold); color: var(--navy) !important; padding: 10px 22px; border-radius: 2px; font-weight: 600; color: var(--navy); transition: background 0.2s !important; } .nav-cta:hover { background: var(--gold-light) !important; color: var(--navy) !important; } /* ===== PHOTOS ===== */
-.hero-photo-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    z-index: 2;
-    padding: 120px 6% 80px;
-}
-.hero-photo {
-    width: 100%;
-    max-width: 380px;
-    border-radius: 12px;
-    box-shadow: 0 32px 64px rgba(0,0,0,0.4);
-    border: 3px solid rgba(200,168,75,0.3);
-    object-fit: cover;
-    animation: fadeInRight 0.9s 0.3s ease both;
-}
-.about-photo-wrapper {
-    position: relative;
-    margin-bottom: 24px;
-}
-.about-photo {
-    width: 100%;
-    border-radius: 8px;
-    box-shadow: 0 16px 40px rgba(13,33,55,0.15);
-    object-fit: cover;
-    max-height: 500px;
-}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Hiago Amorim | Psiquiatria Nutricional & Lifestyle Medicine</title>
+    <meta name="description" content="Médico Nutrólogo especializado em Psiquiatria Nutricional e Lifestyle Medicine. Consultas online para todo o Brasil e presencial em São Luís-MA. CRM-MA 10289 | CRM-SP 223804 | RQE 6806.">
+    <meta name="keywords" content="nutrólogo, psiquiatria nutricional, lifestyle medicine, médico, São Luís, consulta online, nutrologia, saúde mental, TDAH, burnout, compulsão alimentar">
+    <meta name="author" content="Dr. Hiago Amorim">
+    <meta name="robots" content="index, follow">
 
-/* ===== HERO ===== */ #hero { min-height: 100vh; background: var(--navy); display: grid; grid-template-columns: 1fr 1fr; position: relative; overflow: hidden; } .hero-bg-pattern { position: absolute; inset: 0; background-image: radial-gradient(ellipse 80% 60% at 70% 50%, rgba(26,122,138,0.18) 0%, transparent 70%), radial-gradient(ellipse 40% 40% at 20% 80%, rgba(200,168,75,0.08) 0%, transparent 60%); pointer-events: none; } .hero-grid-overlay { position: absolute; inset: 0; background-image: linear-gradient(rgba(200,168,75,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(200,168,75,0.04) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; } .hero-left { display: flex; flex-direction: column; justify-content: center; padding: 140px 6% 80px 8%; position: relative; z-index: 2; } .hero-badge { display: inline-flex; align-items: center; gap: 10px; background: rgba(200,168,75,0.12); border: 1px solid rgba(200,168,75,0.35); color: var(--gold); padding: 8px 18px; border-radius: 100px; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 36px; width: fit-content; animation: fadeInUp 0.8s ease both; } .hero-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); } .hero-title { font-family: 'Playfair Display', serif; font-size: clamp(2.6rem, 4vw, 3.8rem); line-height: 1.12; color: var(--cream); margin-bottom: 28px; animation: fadeInUp 0.8s 0.15s ease both; } .hero-title em { font-style: italic; color: var(--gold); } .hero-subtitle { font-size: 1.05rem; line-height: 1.7; color: rgba(248,243,234,0.65); max-width: 480px; margin-bottom: 48px; font-weight: 300; animation: fadeInUp 0.8s 0.3s ease both; } .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; animation: fadeInUp 0.8s 0.45s ease both; } .btn-primary { background: var(--gold); color: var(--navy); padding: 16px 32px; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border-radius: 2px; transition: all 0.25s; display: inline-flex; align-items: center; gap: 10px; } .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 12px 32px rgba(200,168,75,0.25); } .btn-secondary { border: 1px solid rgba(248,243,234,0.3); color: var(--cream); padding: 16px 32px; font-size: 0.85rem; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border-radius: 2px; transition: all 0.25s; } .btn-secondary:hover { border-color: rgba(248,243,234,0.7); background: rgba(248,243,234,0.06); } .hero-right { display: flex; align-items: center; justify-content: center; position: relative; z-index: 2; padding: 120px 6% 80px; } .hero-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(200,168,75,0.2); border-radius: 4px; padding: 48px 40px; max-width: 380px; width: 100%; backdrop-filter: blur(8px); animation: fadeInRight 0.9s 0.3s ease both; } .hero-card-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--cream); margin-bottom: 32px; line-height: 1.3; } .credential-item { display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid rgba(200,168,75,0.12); } .credential-item:last-child { border-bottom: none; } .credential-icon { width: 36px; height: 36px; flex-shrink: 0; background: rgba(200,168,75,0.12); border: 1px solid rgba(200,168,75,0.25); border-radius: 2px; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; } .credential-label { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 3px; } .credential-value { font-size: 0.9rem; color: rgba(248,243,234,0.85); font-weight: 300; } /* ===== STATS BAR ===== */ .stats-bar { background: var(--navy-mid); border-top: 1px solid rgba(200,168,75,0.15); border-bottom: 1px solid rgba(200,168,75,0.15); padding: 36px 8%; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; } .stat { text-align: center; padding: 0 20px; border-right: 1px solid rgba(200,168,75,0.12); } .stat:last-child { border-right: none; } .stat-number { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--gold); font-weight: 700; display: block; } .stat-label { font-size: 0.72rem; color: rgba(248,243,234,0.55); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 4px; } /* ===== SECTIONS ===== */ section { padding: 100px 8%; } .section-tag { display: inline-block; font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--teal); margin-bottom: 16px; font-weight: 500; } .section-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3.5vw, 2.8rem); line-height: 1.18; margin-bottom: 24px; color: var(--navy); } .section-title em { font-style: italic; color: var(--teal); } .section-lead { font-size: 1.05rem; line-height: 1.75; color: var(--text-light); max-width: 580px; font-weight: 300; } /* ===== ABOUT ===== */ #sobre { background: var(--cream); display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; } .about-visual { position: relative; } .about-card-main { background: var(--navy); border-radius: 4px; padding: 48px 40px; position: relative; overflow: hidden; } .about-card-main::before { content: ''; position: absolute; top: 0; right: 0; width: 200px; height: 200px; background: radial-gradient(circle, rgba(26,122,138,0.25) 0%, transparent 70%); pointer-events: none; } .about-quote { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-style: italic; color: var(--cream); line-height: 1.5; margin-bottom: 24px; position: relative; z-index: 1; } .about-quote::before { content: '"'; font-size: 5rem; color: var(--gold); opacity: 0.25; position: absolute; top: -20px; left: -10px; line-height: 1; font-family: 'Playfair Display', serif; } .about-caption { font-size: 0.8rem; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; } .about-float-card { position: absolute; bottom: -24px; right: -24px; background: var(--gold); color: var(--navy); padding: 20px 24px; border-radius: 4px; font-weight: 700; text-align: center; min-width: 140px; } .about-float-number { font-family: 'Playfair Display', serif; font-size: 2.2rem; display: block; line-height: 1; } .about-float-label { font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 4px; opacity: 0.75; } .about-content { } .pillar-list { margin-top: 40px; display: flex; flex-direction: column; gap: 20px; } .pillar { display: flex; gap: 18px; align-items: flex-start; padding: 22px; border: 1px solid var(--cream-dark); border-radius: 4px; transition: all 0.25s; background: var(--white); } .pillar:hover { border-color: rgba(26,122,138,0.3); box-shadow: 0 8px 24px rgba(13,33,55,0.06); transform: translateX(4px); } .pillar-icon { width: 44px; height: 44px; flex-shrink: 0; background: rgba(26,122,138,0.08); border-radius: 2px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; } .pillar-title { font-weight: 600; font-size: 0.95rem; color: var(--navy); margin-bottom: 4px; } .pillar-desc { font-size: 0.85rem; color: var(--text-light); line-height: 1.55; } /* ===== ESPECIALIDADES ===== */ #especialidades { background: var(--navy); position: relative; overflow: hidden; } #especialidades::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 90% 50%, rgba(26,122,138,0.15) 0%, transparent 60%); pointer-events: none; } #especialidades .section-title { color: var(--cream); } #especialidades .section-tag { color: var(--gold); } #especialidades .section-lead { color: rgba(248,243,234,0.6); } .especialidades-header { max-width: 600px; margin-bottom: 64px; } .especialidades-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; } .esp-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(200,168,75,0.1); padding: 40px 32px; transition: all 0.3s; position: relative; overflow: hidden; cursor: default; } .esp-card::before { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--teal); transform: scaleX(0); transition: transform 0.3s; } .esp-card:hover { background: rgba(255,255,255,0.07); } .esp-card:hover::before { transform: scaleX(1); } .esp-number { font-family: 'Playfair Display', serif; font-size: 3rem; color: rgba(200,168,75,0.15); font-weight: 700; margin-bottom: 20px; display: block; line-height: 1; } .esp-icon { font-size: 1.6rem; margin-bottom: 16px; display: block; } .esp-title { font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--cream); margin-bottom: 12px; line-height: 1.3; } .esp-desc { font-size: 0.83rem; color: rgba(248,243,234,0.5); line-height: 1.65; } /* ===== COMO FUNCIONA ===== */ #como-funciona { background: var(--cream-dark); } .steps-container { margin-top: 64px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative; } .steps-container::before { content: ''; position: absolute; top: 36px; left: calc(12.5% + 20px); right: calc(12.5% + 20px); height: 1px; background: linear-gradient(90deg, var(--teal), var(--gold), var(--teal)); opacity: 0.35; } .step { padding: 0 28px; text-align: center; position: relative; } .step-circle { width: 72px; height: 72px; background: var(--navy); border: 2px solid var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 28px; font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--gold); font-weight: 700; position: relative; z-index: 1; } .step-title { font-weight: 600; font-size: 0.95rem; color: var(--navy); margin-bottom: 10px; } .step-desc { font-size: 0.83rem; color: var(--text-light); line-height: 1.6; } /* ===== ATENDIMENTO ===== */ #atendimento { background: var(--white); display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; } .atendimento-card { padding: 40px; border-radius: 4px; border: 1px solid var(--cream-dark); transition: all 0.3s; } .atendimento-card:hover { box-shadow: 0 16px 48px rgba(13,33,55,0.08); transform: translateY(-4px); } .atendimento-card.featured { background: var(--navy); border-color: transparent; } .atendimento-card.featured .atendimento-card-title, .atendimento-card.featured .atendimento-info, .atendimento-card.featured .atendimento-detail { color: var(--cream) !important; } .atendimento-card.featured .atendimento-detail { color: rgba(248,243,234,0.6) !important; } .atendimento-card.featured .atendimento-tag { background: rgba(200,168,75,0.15); color: var(--gold); } .atendimento-tag { display: inline-block; background: rgba(26,122,138,0.08); color: var(--teal); padding: 5px 14px; border-radius: 100px; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 20px; font-weight: 500; } .atendimento-card-title { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--navy); margin-bottom: 24px; line-height: 1.3; } .atendimento-details { display: flex; flex-direction: column; gap: 14px; } .atendimento-row { display: flex; gap: 12px; align-items: flex-start; font-size: 0.85rem; } .atendimento-icon { font-size: 1rem; flex-shrink: 0; margin-top: 2px; } .atendimento-info { color: var(--text); font-weight: 500; } .atendimento-detail { color: var(--text-light); } .atendimento-price { margin-top: 28px; padding-top: 24px; border-top: 1px solid rgba(200,168,75,0.15); } .price-label { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); } .price-value { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--cream); font-weight: 700; margin-top: 4px; } .price-detail { font-size: 0.78rem; color: rgba(248,243,234,0.5); margin-top: 2px; } /* ===== CTA FINAL ===== */ #contato { background: var(--navy); text-align: center; position: relative; overflow: hidden; } #contato::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 50% 80% at 50% 100%, rgba(200,168,75,0.1) 0%, transparent 60%), radial-gradient(ellipse 80% 50% at 50% 0%, rgba(26,122,138,0.12) 0%, transparent 60%); pointer-events: none; } #contato .section-title { color: var(--cream); } #contato .section-lead { color: rgba(248,243,234,0.6); margin: 0 auto 48px; text-align: center; max-width: 520px; } #contato .section-tag { color: var(--gold); } .contato-inner { position: relative; z-index: 1; } .contact-options { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 12px; } .contact-btn { display: inline-flex; align-items: center; gap: 10px; padding: 18px 36px; border-radius: 2px; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.06em; text-decoration: none; transition: all 0.25s; } .contact-btn-wa { background: #25D366; color: #fff; } .contact-btn-wa:hover { background: #22c35d; transform: translateY(-2px); box-shadow: 0 12px 28px rgba(37,211,102,0.25); } .contact-btn-doctoralia { background: transparent; border: 1px solid rgba(200,168,75,0.4); color: var(--gold); } .contact-btn-doctoralia:hover { background: rgba(200,168,75,0.08); border-color: var(--gold); transform: translateY(-2px); } .contact-note { margin-top: 32px; font-size: 0.78rem; color: rgba(248,243,234,0.35); letter-spacing: 0.05em; } /* ===== FOOTER ===== */ footer { background: #080F18; padding: 40px 8%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; border-top: 1px solid rgba(200,168,75,0.1); } .footer-logo { font-family: 'Playfair Display', serif; color: var(--cream); font-size: 1rem; } .footer-logo span { display: block; font-family: 'DM Sans', sans-serif; font-size: 0.65rem; letter-spacing: 0.12em; color: rgba(248,243,234,0.35); text-transform: uppercase; margin-top: 3px; } .footer-crm { font-size: 0.72rem; color: rgba(248,243,234,0.3); letter-spacing: 0.06em; text-align: right; } .footer-crm div { margin-bottom: 3px; } /* ===== ANIMATIONS ===== */ @keyframes fadeInUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } } @keyframes fadeInRight { from { opacity: 0; transform: translateX(32px); } to { opacity: 1; transform: translateX(0); } } .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; } .reveal.visible { opacity: 1; transform: translateY(0); } /* ===== MOBILE ===== */ @media (max-width: 900px) { #hero { grid-template-columns: 1fr; } .hero-right { display: flex; padding: 0 6% 40px; } .hero-photo { max-width: 280px; } .hero-left { padding: 120px 6% 60px; } #sobre { grid-template-columns: 1fr; gap: 40px; } .about-visual { display: block; } .about-card-main { display: none; } .about-float-card { display: none; } .especialidades-grid { grid-template-columns: 1fr; } .steps-container { grid-template-columns: 1fr 1fr; } .steps-container::before { display: none; } #atendimento { grid-template-columns: 1fr; gap: 24px; } .stats-bar { grid-template-columns: repeat(2, 1fr); } .stat { border-right: none; border-bottom: 1px solid rgba(200,168,75,0.12); } .stat:nth-child(even) { border-bottom: none; } .nav-links { display: none; } section { padding: 72px 6%; } } </style> </head> <body> <!-- NAVBAR --> <nav> <div class="nav-logo"> Dr. Hiago Amorim <span>Psiquiatria Nutricional & Lifestyle Medicine</span> </div> <ul class="nav-links"> <li><a href="#sobre">Sobre</a></li> <li><a href="#especialidades">Especialidades</a></li> <li><a href="#como-funciona">Como Funciona</a></li> <li><a href="#atendimento">Atendimento</a></li> <li><a href="#contato" class="nav-cta">Agendar</a></li> </ul> </nav> <!-- HERO --> <section id="hero"> <div class="hero-bg-pattern"></div> <div class="hero-grid-overlay"></div> <div class="hero-left"> <div class="hero-badge">Médico Nutrólogo · Psiquiatria Nutricional</div> <h1 class="hero-title"> Corpo, Mente e<br> <em>Qualidade de Vida</em><br> em equilíbrio </h1> <p class="hero-subtitle"> Uma abordagem científica integrativa que une Nutrição, Saúde Mental e Lifestyle Medicine para transformar a sua relação com o corpo e com a mente. </p> <div class="hero-ctas"> <a href="#contato" class="btn-primary"> ✦ Agendar Consulta </a> <a href="#sobre" class="btn-secondary">Conheça a Abordagem</a> </div> </div> <div class="hero-right hero-photo-container"> <img src="hero-dr-hiago.jpg" alt="Dr. Hiago Amorim - Médico Nutrólogo" class="hero-photo"> <div class="hero-card" style="display:none;"> <p class="hero-card-title">Credenciais & Registros</p> <div class="credential-item"> <div class="credential-icon">⚕</div> <div> <div class="credential-label">Registro Médico</div> <div class="credential-value">CRM-MA 10289 | CRM-SP 223804</div> </div> </div> <div class="credential-item"> <div class="credential-icon"></div> <div> <div class="credential-label">Especialidade</div> <div class="credential-value">Nutrologia — RQE 6806</div> </div> </div> <div class="credential-item"> <div class="credential-icon"></div> <div> <div class="credential-label">Formação</div> <div class="credential-value">Psiquiatria Nutricional & Saúde Mental</div> </div> </div> <div class="credential-item"> <div class="credential-icon"></div> <div> <div class="credential-label">Atendimento</div> <div class="credential-value">Online (Brasil todo) + São Luís-MA</div> </div> </div> </div> </div> </section> <!-- STATS BAR --> <div class="stats-bar"> <div class="stat"> <span class="stat-number">+269</span> <span class="stat-label">Avaliações no Doctoralia</span> </div> <div class="stat"> <span class="stat-number">2</span> <span class="stat-label">Registros CRM Ativos</span> </div> <div class="stat"> <span class="stat-number">BR</span> <span class="stat-label">Atendimento Online Nacional</span> </div> <div class="stat"> <span class="stat-number">60'</span> <span class="stat-label">Consultas Integradas</span> </div> </div> <!-- SOBRE --> <section id="sobre"> <div class="about-visual reveal"> <div class="about-photo-wrapper"><img src="images/about-dr-hiago.jpg" alt="Dr. Hiago Amorim" class="about-photo"></div> <div class="about-card-main"> <p class="about-quote"> A saúde mental começa no metabolismo. O que você come molda como você sente, pensa e vive. </p> <div class="about-caption">Dr. Hiago Amorim — Medicina Metabólica da Mente</div> </div> <div class="about-float-card"> <span class="about-float-number">São Luís</span> <span class="about-float-label">Presencial & Online</span> </div> </div> <div class="about-content reveal"> <span class="section-tag">Sobre o Dr. Hiago</span> <h2 class="section-title">Uma abordagem que <em>une</em> o que a medicina separou</h2> <p class="section-lead"> Médico Nutrólogo com formação especializada em Psiquiatria Nutricional e Lifestyle Medicine. Atendo a interface entre o metabolismo, o intestino e o cérebro — onde moram as raízes de muitos sofrimentos que a medicina convencional trata de forma fragmentada. </p> <div class="pillar-list"> <div class="pillar"> <div class="pillar-icon"></div> <div> <div class="pillar-title">Abordagem Científica Integrativa</div> <div class="pillar-desc">Protocolos baseados em evidências que consideram bioquímica, epigenética, microbiota e saúde mental como um sistema único.</div> </div> </div> <div class="pillar"> <div class="pillar-icon"></div> <div> <div class="pillar-title">Medicina Metabólica da Mente</div> <div class="pillar-desc">Eixo intestino-cérebro, inflamação crônica de baixo grau e disregulação do eixo HPA como alvos terapêuticos centrais.</div> </div> </div> <div class="pillar"> <div class="pillar-icon">♾️</div> <div> <div class="pillar-title">Lifestyle Medicine</div> <div class="pillar-desc">Sono, movimento, gestão do estresse e vínculos sociais como medicamentos — prescritos com a mesma seriedade de qualquer fármaco.</div> </div> </div> </div> </div> </section> <!-- ESPECIALIDADES --> <section id="especialidades"> <div class="especialidades-header reveal"> <span class="section-tag">Especialidades</span> <h2 class="section-title">Condições que <em>trato</em></h2> <p class="section-lead">Atendo condições que vivem na fronteira entre a nutrição e a saúde mental — onde a maioria dos tratamentos chega fragmentada.</p> </div> <div class="especialidades-grid"> <div class="esp-card reveal"> <span class="esp-number">01</span> <span class="esp-icon">️</span> <h3 class="esp-title">Compulsão & Obesidade Emocional</h3> <p class="esp-desc">Abordagem integrativa da compulsão alimentar, comer emocional e obesidade ligada a sofrimento psíquico.</p> </div> <div class="esp-card reveal"> <span class="esp-number">02</span> <span class="esp-icon"></span> <h3 class="esp-title">Distúrbios do Sono</h3> <p class="esp-desc">Insônia, arquitetura do sono prejudicada e sua relação com humor, metabolismo e desregulação emocional.</p> </div> <div class="esp-card reveal"> <span class="esp-number">03</span> <span class="esp-icon">⚡</span> <h3 class="esp-title">TDAH & Desregulação Emocional</h3> <p class="esp-desc">Manejo clínico do TDAH em adultos com foco em regulação emocional, cognição e qualidade de vida.</p> </div> <div class="esp-card reveal"> <span class="esp-number">04</span> <span class="esp-icon"></span> <h3 class="esp-title">Depressão & TEPT Complexo</h3> <p class="esp-desc">Depressão resistente, trauma e TEPT tratados sob a perspectiva da Psiquiatria Nutricional e neurobiologia.</p> </div> <div class="esp-card reveal"> <span class="esp-number">05</span> <span class="esp-icon"></span> <h3 class="esp-title">Burnout & Estresse Crônico</h3> <p class="esp-desc">Exaustão executiva, hipercortisolismo funcional e esgotamento tratados de forma sistêmica e integrativa.</p> </div> <div class="esp-card reveal"> <span class="esp-number">06</span> <span class="esp-icon"></span> <h3 class="esp-title">Nutrologia Clínica</h3> <p class="esp-desc">Deficiências nutricionais, microbiota intestinal, inflamação de baixo grau e sua interface com saúde mental.</p> </div> </div> </section> <!-- COMO FUNCIONA --> <section id="como-funciona"> <div style="text-align:center; max-width: 560px; margin: 0 auto;" class="reveal"> <span class="section-tag">Como Funciona</span> <h2 class="section-title">Do primeiro contato à <em>transformação</em></h2> <p class="section-lead" style="margin: 0 auto;">Um processo estruturado, personalizado e baseado em evidências.</p> </div> <div class="steps-container"> <div class="step reveal"> <div class="step-circle">1</div> <div class="step-title">Agendamento</div> <div class="step-desc">Escolha o formato — online ou presencial em São Luís — e agende pelo Doctoralia ou WhatsApp.</div> </div> <div class="step reveal"> <div class="step-circle">2</div> <div class="step-title">Primeira Consulta</div> <div class="step-desc">Anamnese completa: história clínica, emocional, nutricional, sono e qualidade de vida. Duração: 60–90 min.</div> </div> <div class="step reveal"> <div class="step-circle">3</div> <div class="step-title">Plano Integrado</div> <div class="step-desc">Protocolo individualizado com prescrição, orientações nutricionais, lifestyle e acompanhamento de exames.</div> </div> <div class="step reveal"> <div class="step-circle">4</div> <div class="step-title">Acompanhamento</div> <div class="step-desc">Retornos regulares para ajuste do plano conforme sua evolução clínica e qualidade de vida.</div> </div> </div> </section> <!-- ATENDIMENTO --> <section id="atendimento"> <div class="reveal"> <span class="section-tag">Modalidades de Atendimento</span> <h2 class="section-title">Onde e como <em>atendo</em></h2> <p class="section-lead">Flexibilidade para que você receba cuidado de qualidade onde estiver.</p> <div style="margin-top: 40px; display: flex; flex-direction: column; gap: 24px;"> <div class="atendimento-card featured"> <span class="atendimento-tag">✦ Telemedicina</span> <h3 class="atendimento-card-title">Consulta Online — Para todo o Brasil</h3> <div class="atendimento-details"> <div class="atendimento-row"> <span class="atendimento-icon"></span> <div> <div class="atendimento-info">Segunda a Quinta-feira</div> <div class="atendimento-detail">Horários a combinar</div> </div> </div> <div class="atendimento-row"> <span class="atendimento-icon"></span> <div> <div class="atendimento-info">Plataforma Segura de Telemedicina</div> <div class="atendimento-detail">Consulta completa, prescrição eletrônica inclusa</div> </div> </div> <div class="atendimento-row"> <span class="atendimento-icon"></span> <div> <div class="atendimento-info">Válido em todo território nacional</div> <div class="atendimento-detail">Regulamentado pelo CFM</div> </div> </div> </div> <div class="atendimento-price"> <div class="price-label">Investimento</div> <div class="price-value">R$ 400</div> <div class="price-detail">Consulta de 60 a 90 minutos</div> </div> </div> <div class="atendimento-card"> <span class="atendimento-tag"> Presencial</span> <h3 class="atendimento-card-title">São Luís — Instituto Alberto Geretta</h3> <div class="atendimento-details"> <div class="atendimento-row"> <span class="atendimento-icon"></span> <div> <div class="atendimento-info">Fins de semana</div> <div class="atendimento-detail">Atendimentos a cada 15 dias em São Luís-MA</div> </div> </div> <div class="atendimento-row"> <span class="atendimento-icon"></span> <div> <div class="atendimento-info">Instituto Alberto Geretta</div> <div class="atendimento-detail">São Luís, Maranhão</div> </div> </div> </div> </div> </div> </div> <div class="reveal"> <div style="background: var(--navy); border-radius: 4px; padding: 48px 40px; height: 100%;"> <span class="section-tag" style="color: var(--gold);">Por que escolher esta abordagem?</span> <h3 style="font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--cream); margin: 16px 0 32px; line-height: 1.3;">Uma medicina que trata <em style="color: var(--gold);">você</em> — não apenas seus sintomas</h3> <div style="display: flex; flex-direction: column; gap: 20px;"> <div style="display: flex; gap: 14px; align-items: flex-start;"> <span style="color: var(--gold); font-size: 1.1rem; margin-top:2px;">✦</span> <div> <div style="color: var(--cream); font-weight: 500; font-size: 0.9rem; margin-bottom: 4px;">Visão sistêmica e integrativa</div> <div style="color: rgba(248,243,234,0.5); font-size: 0.82rem; line-height: 1.6;">Corpo e mente tratados como um único sistema interconectado, não em caixinhas separadas.</div> </div> </div> <div style="display: flex; gap: 14px; align-items: flex-start;"> <span style="color: var(--gold); font-size: 1.1rem; margin-top:2px;">✦</span> <div> <div style="color: var(--cream); font-weight: 500; font-size: 0.9rem; margin-bottom: 4px;">Baseado em evidências científicas</div> <div style="color: rgba(248,243,234,0.5); font-size: 0.82rem; line-height: 1.6;">Cada decisão clínica fundamentada na literatura científica mais atual de Psiquiatria Nutricional.</div> </div> </div> <div style="display: flex; gap: 14px; align-items: flex-start;"> <span style="color: var(--gold); font-size: 1.1rem; margin-top:2px;">✦</span> <div> <div style="color: var(--cream); font-weight: 500; font-size: 0.9rem; margin-bottom: 4px;">Acompanhamento longitudinal</div> <div style="color: rgba(248,243,234,0.5); font-size: 0.82rem; line-height: 1.6;">Não apenas uma consulta isolada — um processo contínuo de cuidado e ajuste fino do seu plano.</div> </div> </div> <div style="display: flex; gap: 14px; align-items: flex-start;"> <span style="color: var(--gold); font-size: 1.1rem; margin-top:2px;">✦</span> <div> <div style="color: var(--cream); font-weight: 500; font-size: 0.9rem; margin-bottom: 4px;">Qualidade de vida como desfecho</div> <div style="color: rgba(248,243,234,0.5); font-size: 0.82rem; line-height: 1.6;">O objetivo não é apenas tratar doenças — é construir uma vida com mais energia, clareza e bem-estar.</div> </div> </div> </div> </div> </div> </section> <!-- CTA FINAL --> <section id="contato"> <div class="contato-inner reveal"> <span class="section-tag">Pronto para começar?</span> <h2 class="section-title" style="color: var(--cream); max-width: 600px; margin: 0 auto 20px;">Agende sua consulta e <em style="color: var(--gold);">comece a mudança</em></h2> <p class="section-lead">Atendimento online para todo o Brasil. Consultas presenciais em São Luís-MA a cada 15 dias. Primeiras semanas disponíveis — vagas limitadas.</p> <div class="contact-options"> <a href="https://wa.me/5599991310226" class="contact-btn contact-btn-wa" target="_blank"> <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Agendar pelo WhatsApp </a> <a href="https://www.doctoralia.com.br/z/TWTpqg" class="contact-btn contact-btn-doctoralia" target="_blank"> ⭐ Ver no Doctoralia (+269 avaliações) </a> </div> <p class="contact-note">Consultas online · Seg–Qui · Presencial em São Luís a cada 15 dias</p> </div> </section> <!-- FOOTER --> <footer> <div class="footer-logo"> Dr. Hiago Amorim <span>Corpo · Mente · Qualidade de Vida</span> </div> <div class="footer-crm"> <div>CRM-MA 10289 | CRM-SP 223804</div> <div>RQE Nutrologia: 6806</div> <div style="margin-top: 8px; color: rgba(248,243,234,0.18);">© 2025 Dr. Hiago Amorim · Todos os direitos reservados</div> </div> </footer> <script> // Scroll reveal const reveals = document.querySelectorAll('.reveal'); const observer = new IntersectionObserver((entries) => { entries.forEach((entry, i) => { if (entry.isIntersecting) { setTimeout(() => { entry.target.classList.add('visible'); }, i * 80); observer.unobserve(entry.target); } }); }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }); reveals.forEach(el => observer.observe(el)); // Smooth scroll para links internos document.querySelectorAll('a[href^="#"]').forEach(anchor => { anchor.addEventListener('click', function(e) { e.preventDefault(); const target = document.querySelector(this.getAttribute('href')); if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }); }); </script> </body> </html>
+    <!-- Open Graph -->
+    <meta property="og:title" content="Dr. Hiago Amorim | Psiquiatria Nutricional & Lifestyle Medicine">
+    <meta property="og:description" content="Médico Nutrólogo. Abordagem científica integrativa que une Nutrição, Saúde Mental e Lifestyle Medicine.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://drhiagoamorim.com.br">
+    <meta property="og:locale" content="pt_BR">
+
+    <!-- ✅ FIX 1: Google Fonts — estava faltando no original -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+    <!-- Favicon placeholder -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>⚕</text></svg>">
+
+    <style>
+        :root {
+            --navy: #0D2137;
+            --navy-mid: #163550;
+            --teal: #1A7A8A;
+            --teal-light: #2A9EAF;
+            --cream: #F8F3EA;
+            --cream-dark: #EDE8DC;
+            --gold: #C8A84B;
+            --gold-light: #E2C472;
+            --text: #1A2B3C;
+            --text-light: #4A6070;
+            --white: #FFFFFF;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--cream);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        /* ===== NAVBAR ===== */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 20px 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(13, 33, 55, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(200, 168, 75, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .nav-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: var(--cream);
+            letter-spacing: 0.02em;
+        }
+
+        .nav-logo span {
+            display: block;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.65rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-top: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 36px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(248,243,234,0.75);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-cta {
+            background: var(--gold);
+            color: var(--navy) !important;
+            padding: 10px 22px;
+            border-radius: 2px;
+            font-weight: 600;
+            transition: background 0.2s !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--gold-light) !important;
+            color: var(--navy) !important;
+        }
+
+        /* ✅ FIX 3: Hamburger Menu para Mobile */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 8px;
+            z-index: 110;
+            background: none;
+            border: none;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--cream);
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* ===== HERO ===== */
+        #hero {
+            min-height: 100vh;
+            background: var(--navy);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg-pattern {
+            position: absolute;
+            inset: 0;
+            background-image:
+                radial-gradient(ellipse 80% 60% at 70% 50%, rgba(26,122,138,0.18) 0%, transparent 70%),
+                radial-gradient(ellipse 40% 40% at 20% 80%, rgba(200,168,75,0.08) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .hero-grid-overlay {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(200,168,75,0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(200,168,75,0.04) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+        }
+
+        .hero-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 140px 6% 80px 8%;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(200,168,75,0.12);
+            border: 1px solid rgba(200,168,75,0.35);
+            color: var(--gold);
+            padding: 8px 18px;
+            border-radius: 100px;
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 36px;
+            width: fit-content;
+            animation: fadeInUp 0.8s ease both;
+        }
+
+        .hero-badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--gold);
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.6rem, 4vw, 3.8rem);
+            line-height: 1.12;
+            color: var(--cream);
+            margin-bottom: 28px;
+            animation: fadeInUp 0.8s 0.15s ease both;
+        }
+
+        .hero-title em {
+            font-style: italic;
+            color: var(--gold);
+        }
+
+        .hero-subtitle {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: rgba(248,243,234,0.65);
+            max-width: 480px;
+            margin-bottom: 48px;
+            font-weight: 300;
+            animation: fadeInUp 0.8s 0.3s ease both;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s 0.45s ease both;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: var(--navy);
+            padding: 16px 32px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 2px;
+            transition: all 0.25s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-primary:hover {
+            background: var(--gold-light);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(200,168,75,0.25);
+        }
+
+        .btn-secondary {
+            border: 1px solid rgba(248,243,234,0.3);
+            color: var(--cream);
+            padding: 16px 32px;
+            font-size: 0.85rem;
+            font-weight: 400;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 2px;
+            transition: all 0.25s;
+        }
+
+        .btn-secondary:hover {
+            border-color: rgba(248,243,234,0.7);
+            background: rgba(248,243,234,0.06);
+        }
+
+        /* ===== HERO RIGHT — PHOTO ===== */
+        .hero-photo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+            padding: 120px 6% 80px;
+        }
+
+        .hero-photo {
+            width: 100%;
+            max-width: 380px;
+            border-radius: 12px;
+            box-shadow: 0 32px 64px rgba(0,0,0,0.4);
+            border: 3px solid rgba(200,168,75,0.3);
+            object-fit: cover;
+            animation: fadeInRight 0.9s 0.3s ease both;
+        }
+
+        /* ===== STATS BAR ===== */
+        .stats-bar {
+            background: var(--navy-mid);
+            border-top: 1px solid rgba(200,168,75,0.15);
+            border-bottom: 1px solid rgba(200,168,75,0.15);
+            padding: 36px 8%;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 0 20px;
+            border-right: 1px solid rgba(200,168,75,0.12);
+        }
+
+        .stat:last-child {
+            border-right: none;
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--gold);
+            font-weight: 700;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.72rem;
+            color: rgba(248,243,234,0.55);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-top: 4px;
+        }
+
+        /* ===== SECTIONS ===== */
+        section {
+            padding: 100px 8%;
+        }
+
+        .section-tag {
+            display: inline-block;
+            font-size: 0.68rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--teal);
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
+            line-height: 1.18;
+            margin-bottom: 24px;
+            color: var(--navy);
+        }
+
+        .section-title em {
+            font-style: italic;
+            color: var(--teal);
+        }
+
+        .section-lead {
+            font-size: 1.05rem;
+            line-height: 1.75;
+            color: var(--text-light);
+            max-width: 580px;
+            font-weight: 300;
+        }
+
+        /* ===== ABOUT ===== */
+        #sobre {
+            background: var(--cream);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-visual {
+            position: relative;
+        }
+
+        .about-photo-wrapper {
+            position: relative;
+            margin-bottom: 24px;
+        }
+
+        .about-photo {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 16px 40px rgba(13,33,55,0.15);
+            object-fit: cover;
+            max-height: 500px;
+        }
+
+        .about-card-main {
+            background: var(--navy);
+            border-radius: 4px;
+            padding: 48px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-card-main::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(26,122,138,0.25) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .about-quote {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-style: italic;
+            color: var(--cream);
+            line-height: 1.5;
+            margin-bottom: 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-quote::before {
+            content: '\201C';
+            font-size: 5rem;
+            color: var(--gold);
+            opacity: 0.25;
+            position: absolute;
+            top: -20px;
+            left: -10px;
+            line-height: 1;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .about-caption {
+            font-size: 0.8rem;
+            color: var(--gold);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .about-float-card {
+            position: absolute;
+            bottom: -24px;
+            right: -24px;
+            background: var(--gold);
+            color: var(--navy);
+            padding: 20px 24px;
+            border-radius: 4px;
+            font-weight: 700;
+            text-align: center;
+            min-width: 140px;
+        }
+
+        .about-float-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            display: block;
+            line-height: 1;
+        }
+
+        .about-float-label {
+            font-size: 0.65rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-top: 4px;
+            opacity: 0.75;
+        }
+
+        .pillar-list {
+            margin-top: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .pillar {
+            display: flex;
+            gap: 18px;
+            align-items: flex-start;
+            padding: 22px;
+            border: 1px solid var(--cream-dark);
+            border-radius: 4px;
+            transition: all 0.25s;
+            background: var(--white);
+        }
+
+        .pillar:hover {
+            border-color: rgba(26,122,138,0.3);
+            box-shadow: 0 8px 24px rgba(13,33,55,0.06);
+            transform: translateX(4px);
+        }
+
+        .pillar-icon {
+            width: 44px;
+            height: 44px;
+            flex-shrink: 0;
+            background: rgba(26,122,138,0.08);
+            border-radius: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+
+        .pillar-title {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--navy);
+            margin-bottom: 4px;
+        }
+
+        .pillar-desc {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            line-height: 1.55;
+        }
+
+        /* ===== ESPECIALIDADES ===== */
+        #especialidades {
+            background: var(--navy);
+            position: relative;
+            overflow: hidden;
+        }
+
+        #especialidades::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 60% 80% at 90% 50%, rgba(26,122,138,0.15) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        #especialidades .section-title { color: var(--cream); }
+        #especialidades .section-tag { color: var(--gold); }
+        #especialidades .section-lead { color: rgba(248,243,234,0.6); }
+
+        .especialidades-header {
+            max-width: 600px;
+            margin-bottom: 64px;
+        }
+
+        .especialidades-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+        }
+
+        .esp-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(200,168,75,0.1);
+            padding: 40px 32px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            cursor: default;
+        }
+
+        .esp-card::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--teal);
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .esp-card:hover {
+            background: rgba(255,255,255,0.07);
+        }
+
+        .esp-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .esp-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: rgba(200,168,75,0.15);
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: block;
+            line-height: 1;
+        }
+
+        .esp-icon {
+            font-size: 1.6rem;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .esp-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem;
+            color: var(--cream);
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .esp-desc {
+            font-size: 0.83rem;
+            color: rgba(248,243,234,0.5);
+            line-height: 1.65;
+        }
+
+        /* ===== COMO FUNCIONA ===== */
+        #como-funciona {
+            background: var(--cream-dark);
+        }
+
+        .steps-container {
+            margin-top: 64px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+            position: relative;
+        }
+
+        .steps-container::before {
+            content: '';
+            position: absolute;
+            top: 36px;
+            left: calc(12.5% + 20px);
+            right: calc(12.5% + 20px);
+            height: 1px;
+            background: linear-gradient(90deg, var(--teal), var(--gold), var(--teal));
+            opacity: 0.35;
+        }
+
+        .step {
+            padding: 0 28px;
+            text-align: center;
+            position: relative;
+        }
+
+        .step-circle {
+            width: 72px;
+            height: 72px;
+            background: var(--navy);
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 28px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--gold);
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-title {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--navy);
+            margin-bottom: 10px;
+        }
+
+        .step-desc {
+            font-size: 0.83rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* ===== ATENDIMENTO ===== */
+        #atendimento {
+            background: var(--white);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .atendimento-card {
+            padding: 40px;
+            border-radius: 4px;
+            border: 1px solid var(--cream-dark);
+            transition: all 0.3s;
+        }
+
+        .atendimento-card:hover {
+            box-shadow: 0 16px 48px rgba(13,33,55,0.08);
+            transform: translateY(-4px);
+        }
+
+        .atendimento-card.featured {
+            background: var(--navy);
+            border-color: transparent;
+        }
+
+        .atendimento-card.featured .atendimento-card-title,
+        .atendimento-card.featured .atendimento-info,
+        .atendimento-card.featured .atendimento-detail {
+            color: var(--cream) !important;
+        }
+
+        .atendimento-card.featured .atendimento-detail {
+            color: rgba(248,243,234,0.6) !important;
+        }
+
+        .atendimento-card.featured .atendimento-tag {
+            background: rgba(200,168,75,0.15);
+            color: var(--gold);
+        }
+
+        .atendimento-tag {
+            display: inline-block;
+            background: rgba(26,122,138,0.08);
+            color: var(--teal);
+            padding: 5px 14px;
+            border-radius: 100px;
+            font-size: 0.68rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .atendimento-card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--navy);
+            margin-bottom: 24px;
+            line-height: 1.3;
+        }
+
+        .atendimento-details {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .atendimento-row {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            font-size: 0.85rem;
+        }
+
+        .atendimento-icon {
+            font-size: 1rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .atendimento-info {
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .atendimento-detail {
+            color: var(--text-light);
+        }
+
+        .atendimento-price {
+            margin-top: 28px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(200,168,75,0.15);
+        }
+
+        .price-label {
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gold);
+        }
+
+        .price-value {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--cream);
+            font-weight: 700;
+            margin-top: 4px;
+        }
+
+        .price-detail {
+            font-size: 0.78rem;
+            color: rgba(248,243,234,0.5);
+            margin-top: 2px;
+        }
+
+        /* ===== DIFERENCIAIS ===== */
+        #diferenciais {
+            background: var(--navy);
+            position: relative;
+            overflow: hidden;
+        }
+
+        #diferenciais::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 50% 60% at 20% 80%, rgba(26,122,138,0.12) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        #diferenciais .section-tag { color: var(--gold); }
+        #diferenciais .section-title { color: var(--cream); }
+        #diferenciais .section-title em { color: var(--gold); }
+
+        .diferenciais-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .dif-card {
+            padding: 32px;
+            border: 1px solid rgba(200,168,75,0.12);
+            border-radius: 4px;
+            background: rgba(255,255,255,0.03);
+            transition: all 0.3s;
+        }
+
+        .dif-card:hover {
+            background: rgba(255,255,255,0.06);
+            border-color: rgba(200,168,75,0.25);
+        }
+
+        .dif-icon {
+            font-size: 1.2rem;
+            margin-bottom: 16px;
+            display: block;
+            color: var(--gold);
+        }
+
+        .dif-title {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--cream);
+            margin-bottom: 8px;
+        }
+
+        .dif-desc {
+            font-size: 0.83rem;
+            color: rgba(248,243,234,0.5);
+            line-height: 1.6;
+        }
+
+        /* ===== CTA FINAL ===== */
+        #contato {
+            background: var(--navy);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #contato::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 50% 80% at 50% 100%, rgba(200,168,75,0.1) 0%, transparent 60%),
+                radial-gradient(ellipse 80% 50% at 50% 0%, rgba(26,122,138,0.12) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        #contato .section-title { color: var(--cream); }
+        #contato .section-lead {
+            color: rgba(248,243,234,0.6);
+            margin: 0 auto 48px;
+            text-align: center;
+            max-width: 520px;
+        }
+        #contato .section-tag { color: var(--gold); }
+
+        .contato-inner {
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-options {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 12px;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 18px 36px;
+            border-radius: 2px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            text-decoration: none;
+            transition: all 0.25s;
+        }
+
+        .contact-btn-wa {
+            background: #25D366;
+            color: #fff;
+        }
+
+        .contact-btn-wa:hover {
+            background: #22c35d;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(37,211,102,0.25);
+        }
+
+        .contact-btn-doctoralia {
+            background: transparent;
+            border: 1px solid rgba(200,168,75,0.4);
+            color: var(--gold);
+        }
+
+        .contact-btn-doctoralia:hover {
+            background: rgba(200,168,75,0.08);
+            border-color: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        .contact-note {
+            margin-top: 32px;
+            font-size: 0.78rem;
+            color: rgba(248,243,234,0.35);
+            letter-spacing: 0.05em;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #080F18;
+            padding: 40px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            border-top: 1px solid rgba(200,168,75,0.1);
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            color: var(--cream);
+            font-size: 1rem;
+        }
+
+        .footer-logo span {
+            display: block;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.65rem;
+            letter-spacing: 0.12em;
+            color: rgba(248,243,234,0.35);
+            text-transform: uppercase;
+            margin-top: 3px;
+        }
+
+        .footer-crm {
+            font-size: 0.72rem;
+            color: rgba(248,243,234,0.3);
+            letter-spacing: 0.06em;
+            text-align: right;
+        }
+
+        .footer-crm div {
+            margin-bottom: 3px;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(28px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInRight {
+            from { opacity: 0; transform: translateX(32px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* ✅ FIX 2: Scroll Reveal — agora com fallback robusto */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Fallback: se JS não rodar, tudo fica visível */
+        .no-js .reveal {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* ===== MOBILE ===== */
+        @media (max-width: 900px) {
+            /* ✅ FIX 3: Mobile menu */
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 280px;
+                height: 100vh;
+                background: var(--navy);
+                flex-direction: column;
+                padding: 100px 40px 40px;
+                gap: 24px;
+                transition: right 0.35s ease;
+                box-shadow: -8px 0 32px rgba(0,0,0,0.3);
+                z-index: 105;
+            }
+
+            .nav-links.open {
+                right: 0;
+            }
+
+            .nav-links a {
+                font-size: 0.9rem;
+                color: var(--cream);
+            }
+
+            .nav-cta {
+                text-align: center;
+                display: block;
+                margin-top: 16px;
+            }
+
+            .mobile-overlay {
+                display: none;
+                position: fixed;
+                inset: 0;
+                background: rgba(0,0,0,0.5);
+                z-index: 104;
+            }
+
+            .mobile-overlay.active {
+                display: block;
+            }
+
+            #hero {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-photo-container {
+                display: flex;
+                padding: 0 6% 40px;
+            }
+
+            .hero-photo {
+                max-width: 280px;
+            }
+
+            .hero-left {
+                padding: 120px 6% 60px;
+            }
+
+            #sobre {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .about-visual { display: block; }
+            .about-card-main { display: none; }
+            .about-float-card { display: none; }
+
+            .about-photo-wrapper {
+                display: block;
+            }
+
+            .especialidades-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .steps-container {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .steps-container::before { display: none; }
+
+            #atendimento {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .diferenciais-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-bar {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stat {
+                border-right: none;
+                border-bottom: 1px solid rgba(200,168,75,0.12);
+                padding-bottom: 16px;
+            }
+
+            .stat:nth-last-child(-n+2) {
+                border-bottom: none;
+            }
+
+            section {
+                padding: 72px 6%;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .steps-container {
+                grid-template-columns: 1fr;
+            }
+
+            .step {
+                padding: 16px 0;
+            }
+
+            .contact-options {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contact-btn {
+                width: 100%;
+                justify-content: center;
+                max-width: 320px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="nav-logo">
+            Dr. Hiago Amorim
+            <span>Psiquiatria Nutricional & Lifestyle Medicine</span>
+        </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#especialidades">Especialidades</a></li>
+            <li><a href="#como-funciona">Como Funciona</a></li>
+            <li><a href="#atendimento">Atendimento</a></li>
+            <li><a href="#contato" class="nav-cta">Agendar</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+
+    <!-- HERO -->
+    <section id="hero">
+        <div class="hero-bg-pattern"></div>
+        <div class="hero-grid-overlay"></div>
+        <div class="hero-left">
+            <div class="hero-badge">Médico Nutrólogo · Psiquiatria Nutricional</div>
+            <h1 class="hero-title">Corpo, Mente e<br><em>Qualidade de Vida</em><br>em equilíbrio</h1>
+            <p class="hero-subtitle">Uma abordagem científica integrativa que une Nutrição, Saúde Mental e Lifestyle Medicine para transformar a sua relação com o corpo e com a mente.</p>
+            <div class="hero-ctas">
+                <a href="#contato" class="btn-primary">✦ Agendar Consulta</a>
+                <a href="#sobre" class="btn-secondary">Conheça a Abordagem</a>
+            </div>
+        </div>
+        <div class="hero-photo-container">
+            <img src="https://i.ibb.co/4gX6FhYx/foto-dr-hiago.jpg" alt="Dr. Hiago Amorim — Médico Nutrólogo" class="hero-photo" loading="eager">
+        </div>
+    </section>
+
+    <!-- STATS BAR -->
+    <div class="stats-bar">
+        <div class="stat reveal">
+            <span class="stat-number">+269</span>
+            <span class="stat-label">Avaliações no Doctoralia</span>
+        </div>
+        <div class="stat reveal">
+            <span class="stat-number">2</span>
+            <span class="stat-label">Registros CRM Ativos</span>
+        </div>
+        <div class="stat reveal">
+            <span class="stat-number">BR</span>
+            <span class="stat-label">Atendimento Online Nacional</span>
+        </div>
+        <div class="stat reveal">
+            <span class="stat-number">60'</span>
+            <span class="stat-label">Consultas Integradas</span>
+        </div>
+    </div>
+
+    <!-- SOBRE -->
+    <section id="sobre">
+        <div class="about-visual reveal">
+            <div class="about-photo-wrapper">
+                <img src="https://i.ibb.co/4gX6FhYx/foto-dr-hiago.jpg" alt="Dr. Hiago Amorim — Sobre" class="about-photo">
+            </div>
+            <div class="about-card-main">
+                <p class="about-quote">A saúde mental começa no metabolismo. O que você come molda como você sente, pensa e vive.</p>
+                <p class="about-caption">Dr. Hiago Amorim — Medicina Metabólica da Mente</p>
+                <div class="about-float-card">
+                    <span class="about-float-number">São Luís</span>
+                    <span class="about-float-label">Presencial & Online</span>
+                </div>
+            </div>
+        </div>
+        <div class="about-content">
+            <span class="section-tag reveal">Sobre o Dr. Hiago</span>
+            <h2 class="section-title reveal">Uma abordagem que <em>une</em> o que a medicina separou</h2>
+            <p class="section-lead reveal">Médico Nutrólogo com formação especializada em Psiquiatria Nutricional e Lifestyle Medicine. Atendo a interface entre o metabolismo, o intestino e o cérebro — onde moram as raízes de muitos sofrimentos que a medicina convencional trata de forma fragmentada.</p>
+            <div class="pillar-list">
+                <div class="pillar reveal">
+                    <div class="pillar-icon">🔬</div>
+                    <div>
+                        <div class="pillar-title">Abordagem Científica Integrativa</div>
+                        <div class="pillar-desc">Protocolos baseados em evidências que consideram bioquímica, epigenética, microbiota e saúde mental como um sistema único.</div>
+                    </div>
+                </div>
+                <div class="pillar reveal">
+                    <div class="pillar-icon">🧠</div>
+                    <div>
+                        <div class="pillar-title">Medicina Metabólica da Mente</div>
+                        <div class="pillar-desc">Eixo intestino-cérebro, inflamação crônica de baixo grau e disregulação do eixo HPA como alvos terapêuticos centrais.</div>
+                    </div>
+                </div>
+                <div class="pillar reveal">
+                    <div class="pillar-icon">♾️</div>
+                    <div>
+                        <div class="pillar-title">Lifestyle Medicine</div>
+                        <div class="pillar-desc">Sono, movimento, gestão do estresse e vínculos sociais como medicamentos — prescritos com a mesma seriedade de qualquer fármaco.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ESPECIALIDADES -->
+    <section id="especialidades">
+        <div class="especialidades-header">
+            <span class="section-tag reveal">Especialidades</span>
+            <h2 class="section-title reveal">Condições que trato</h2>
+            <p class="section-lead reveal">Atendo condições que vivem na fronteira entre a nutrição e a saúde mental — onde a maioria dos tratamentos chega fragmentada.</p>
+        </div>
+        <div class="especialidades-grid">
+            <div class="esp-card reveal">
+                <span class="esp-number">01</span>
+                <span class="esp-icon">🍽️</span>
+                <h3 class="esp-title">Compulsão & Obesidade Emocional</h3>
+                <p class="esp-desc">Abordagem integrativa da compulsão alimentar, comer emocional e obesidade ligada a sofrimento psíquico.</p>
+            </div>
+            <div class="esp-card reveal">
+                <span class="esp-number">02</span>
+                <span class="esp-icon">🌙</span>
+                <h3 class="esp-title">Distúrbios do Sono</h3>
+                <p class="esp-desc">Insônia, arquitetura do sono prejudicada e sua relação com humor, metabolismo e desregulação emocional.</p>
+            </div>
+            <div class="esp-card reveal">
+                <span class="esp-number">03</span>
+                <span class="esp-icon">⚡</span>
+                <h3 class="esp-title">TDAH & Desregulação Emocional</h3>
+                <p class="esp-desc">Manejo clínico do TDAH em adultos com foco em regulação emocional, cognição e qualidade de vida.</p>
+            </div>
+            <div class="esp-card reveal">
+                <span class="esp-number">04</span>
+                <span class="esp-icon">💜</span>
+                <h3 class="esp-title">Depressão & TEPT Complexo</h3>
+                <p class="esp-desc">Depressão resistente, trauma e TEPT tratados sob a perspectiva da Psiquiatria Nutricional e neurobiologia.</p>
+            </div>
+            <div class="esp-card reveal">
+                <span class="esp-number">05</span>
+                <span class="esp-icon">🔥</span>
+                <h3 class="esp-title">Burnout & Estresse Crônico</h3>
+                <p class="esp-desc">Exaustão executiva, hipercortisolismo funcional e esgotamento tratados de forma sistêmica e integrativa.</p>
+            </div>
+            <div class="esp-card reveal">
+                <span class="esp-number">06</span>
+                <span class="esp-icon">🧬</span>
+                <h3 class="esp-title">Nutrologia Clínica</h3>
+                <p class="esp-desc">Deficiências nutricionais, microbiota intestinal, inflamação de baixo grau e sua interface com saúde mental.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMO FUNCIONA -->
+    <section id="como-funciona">
+        <span class="section-tag reveal">Como Funciona</span>
+        <h2 class="section-title reveal">Do primeiro contato à transformação</h2>
+        <p class="section-lead reveal">Um processo estruturado, personalizado e baseado em evidências.</p>
+        <div class="steps-container">
+            <div class="step reveal">
+                <div class="step-circle">1</div>
+                <h3 class="step-title">Agendamento</h3>
+                <p class="step-desc">Escolha o formato — online ou presencial em São Luís — e agende pelo Doctoralia ou WhatsApp.</p>
+            </div>
+            <div class="step reveal">
+                <div class="step-circle">2</div>
+                <h3 class="step-title">Primeira Consulta</h3>
+                <p class="step-desc">Anamnese completa: história clínica, emocional, nutricional, sono e qualidade de vida. Duração: 60–90 min.</p>
+            </div>
+            <div class="step reveal">
+                <div class="step-circle">3</div>
+                <h3 class="step-title">Plano Integrado</h3>
+                <p class="step-desc">Protocolo individualizado com prescrição, orientações nutricionais, lifestyle e acompanhamento de exames.</p>
+            </div>
+            <div class="step reveal">
+                <div class="step-circle">4</div>
+                <h3 class="step-title">Acompanhamento</h3>
+                <p class="step-desc">Retornos regulares para ajuste do plano conforme sua evolução clínica e qualidade de vida.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ATENDIMENTO -->
+    <section id="atendimento">
+        <div>
+            <span class="section-tag reveal">Modalidades de Atendimento</span>
+            <h2 class="section-title reveal">Onde e como <em>atendo</em></h2>
+            <p class="section-lead reveal">Flexibilidade para que você receba cuidado de qualidade onde estiver.</p>
+
+            <div class="atendimento-card featured reveal" style="margin-top: 40px;">
+                <span class="atendimento-tag">✦ Telemedicina</span>
+                <h3 class="atendimento-card-title">Consulta Online — Para todo o Brasil</h3>
+                <div class="atendimento-details">
+                    <div class="atendimento-row">
+                        <span class="atendimento-icon">📅</span>
+                        <div>
+                            <div class="atendimento-info">Segunda a Quinta-feira</div>
+                            <div class="atendimento-detail">Horários a combinar</div>
+                        </div>
+                    </div>
+                    <div class="atendimento-row">
+                        <span class="atendimento-icon">💻</span>
+                        <div>
+                            <div class="atendimento-info">Plataforma Segura de Telemedicina</div>
+                            <div class="atendimento-detail">Consulta completa, prescrição eletrônica inclusa</div>
+                        </div>
+                    </div>
+                    <div class="atendimento-row">
+                        <span class="atendimento-icon">🇧🇷</span>
+                        <div>
+                            <div class="atendimento-info">Válido em todo território nacional</div>
+                            <div class="atendimento-detail">Regulamentado pelo CFM</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="atendimento-price">
+                    <div class="price-label">Investimento</div>
+                    <div class="price-value">R$ 400</div>
+                    <div class="price-detail">Consulta de 60 a 90 minutos</div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="atendimento-card reveal" style="margin-top: 134px;">
+                <span class="atendimento-tag">Presencial</span>
+                <h3 class="atendimento-card-title">São Luís — Instituto Alberto Geretta</h3>
+                <div class="atendimento-details">
+                    <div class="atendimento-row">
+                        <span class="atendimento-icon">📅</span>
+                        <div>
+                            <div class="atendimento-info">Fins de semana</div>
+                            <div class="atendimento-detail">Atendimentos a cada 15 dias em São Luís-MA</div>
+                        </div>
+                    </div>
+                    <div class="atendimento-row">
+                        <span class="atendimento-icon">📍</span>
+                        <div>
+                            <div class="atendimento-info">Instituto Alberto Geretta</div>
+                            <div class="atendimento-detail">São Luís, Maranhão</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DIFERENCIAIS -->
+    <section id="diferenciais">
+        <div class="contato-inner">
+            <span class="section-tag reveal">Por que escolher esta abordagem?</span>
+            <h2 class="section-title reveal">Uma medicina que trata <em>você</em> — não apenas seus sintomas</h2>
+            <div class="diferenciais-grid">
+                <div class="dif-card reveal">
+                    <span class="dif-icon">✦</span>
+                    <div class="dif-title">Visão sistêmica e integrativa</div>
+                    <p class="dif-desc">Corpo e mente tratados como um único sistema interconectado, não em caixinhas separadas.</p>
+                </div>
+                <div class="dif-card reveal">
+                    <span class="dif-icon">✦</span>
+                    <div class="dif-title">Baseado em evidências científicas</div>
+                    <p class="dif-desc">Cada decisão clínica fundamentada na literatura científica mais atual de Psiquiatria Nutricional.</p>
+                </div>
+                <div class="dif-card reveal">
+                    <span class="dif-icon">✦</span>
+                    <div class="dif-title">Acompanhamento longitudinal</div>
+                    <p class="dif-desc">Não apenas uma consulta isolada — um processo contínuo de cuidado e ajuste fino do seu plano.</p>
+                </div>
+                <div class="dif-card reveal">
+                    <span class="dif-icon">✦</span>
+                    <div class="dif-title">Qualidade de vida como desfecho</div>
+                    <p class="dif-desc">O objetivo não é apenas tratar doenças — é construir uma vida com mais energia, clareza e bem-estar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section id="contato">
+        <div class="contato-inner">
+            <span class="section-tag reveal">Pronto para começar?</span>
+            <h2 class="section-title reveal">Agende sua consulta e <em>comece a mudança</em></h2>
+            <p class="section-lead reveal">Atendimento online para todo o Brasil. Consultas presenciais em São Luís-MA a cada 15 dias. Primeiras semanas disponíveis — vagas limitadas.</p>
+            <div class="contact-options reveal">
+                <a href="https://wa.me/5599991310226" target="_blank" rel="noopener" class="contact-btn contact-btn-wa">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    Agendar pelo WhatsApp
+                </a>
+                <a href="https://www.doctoralia.com.br/z/TWTpqg" target="_blank" rel="noopener" class="contact-btn contact-btn-doctoralia">
+                    ⭐ Ver no Doctoralia (+269 avaliações)
+                </a>
+            </div>
+            <p class="contact-note reveal">Consultas online · Seg–Qui · Presencial em São Luís a cada 15 dias</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-logo">
+            Dr. Hiago Amorim
+            <span>Corpo · Mente · Qualidade de Vida</span>
+        </div>
+        <div class="footer-crm">
+            <div>CRM-MA 10289 | CRM-SP 223804</div>
+            <div>RQE Nutrologia: 6806</div>
+            <div>© 2025 Dr. Hiago Amorim · Todos os direitos reservados</div>
+        </div>
+    </footer>
+
+    <script>
+        // ✅ FIX 2: Scroll Reveal — reescrito com fallback robusto
+        (function() {
+            // Marca que JS está ativo
+            document.body.classList.remove('no-js');
+
+            var reveals = document.querySelectorAll('.reveal');
+
+            if ('IntersectionObserver' in window) {
+                var observer = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, {
+                    threshold: 0.08,
+                    rootMargin: '0px 0px -20px 0px'
+                });
+
+                reveals.forEach(function(el) {
+                    observer.observe(el);
+                });
+            } else {
+                // Fallback para browsers sem IntersectionObserver
+                reveals.forEach(function(el) {
+                    el.classList.add('visible');
+                });
+            }
+
+            // Segurança extra: se após 3 segundos algo ainda não for visível, força
+            setTimeout(function() {
+                reveals.forEach(function(el) {
+                    if (!el.classList.contains('visible')) {
+                        el.classList.add('visible');
+                    }
+                });
+            }, 3000);
+        })();
+
+        // ✅ FIX 3: Hamburger Menu
+        (function() {
+            var hamburger = document.getElementById('hamburger');
+            var navLinks = document.getElementById('navLinks');
+            var overlay = document.getElementById('mobileOverlay');
+
+            function toggleMenu() {
+                hamburger.classList.toggle('active');
+                navLinks.classList.toggle('open');
+                overlay.classList.toggle('active');
+                document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
+            }
+
+            function closeMenu() {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('open');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            hamburger.addEventListener('click', toggleMenu);
+            overlay.addEventListener('click', closeMenu);
+
+            // Fecha menu ao clicar em link
+            navLinks.querySelectorAll('a').forEach(function(link) {
+                link.addEventListener('click', closeMenu);
+            });
+        })();
+
+        // Smooth scroll para links internos
+        document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                var target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        (function() {
+            var nav = document.querySelector('nav');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    nav.style.padding = '12px 5%';
+                    nav.style.background = 'rgba(13, 33, 55, 0.98)';
+                } else {
+                    nav.style.padding = '20px 5%';
+                    nav.style.background = 'rgba(13, 33, 55, 0.95)';
+                }
+            });
+        })();
+    </script>
+
+</body>
+</html>
