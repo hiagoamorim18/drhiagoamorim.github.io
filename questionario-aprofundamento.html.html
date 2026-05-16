@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Questionário de Triagem — Medicina Metabólica da Mente</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:       #0B1629;
+  --navy-mid:   #0E2348;
+  --navy-deep:  #080F1E;
+  --blue-brand: #7EB8F7;
+  --gold:       #B8965A;
+  --bg:         #F0F3F8;
+  --card:       #FFFFFF;
+  --text:       #0B1629;
+  --muted:      #5A6A82;
+  --border:     #D8E2F0;
+  --red:        #DC2626;
+  --amber:      #D97706;
+  --green:      #059669;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);font-size:14px;line-height:1.5;min-height:100vh}
+
+/* HEADER */
+.hdr{background:linear-gradient(135deg,var(--navy-deep) 0%,var(--navy) 60%,var(--navy-mid) 100%);padding:16px 24px;position:sticky;top:0;z-index:200;box-shadow:0 2px 28px rgba(0,0,0,.5);border-bottom:1px solid rgba(126,184,247,.08)}
+.hdr-in{max-width:780px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.logo-name{font-family:'Cormorant Garamond',serif;font-size:20px;color:#fff;font-weight:500;letter-spacing:.5px}
+.logo-sub{font-family:'Cormorant Garamond',serif;font-size:10.5px;color:var(--blue-brand);letter-spacing:2.2px;text-transform:uppercase;font-style:italic;display:block;margin-top:2px;opacity:.9}
+.step-ctr{font-size:11px;color:rgba(255,255,255,.45);font-weight:300;white-space:nowrap;text-align:right}
+.crm-badge{display:block;font-size:9.5px;color:rgba(126,184,247,.55);margin-top:2px;letter-spacing:.5px}
+
+/* PROGRESS */
+.prg-wrap{background:linear-gradient(135deg,var(--navy-deep) 0%,var(--navy) 100%);padding:0 24px 14px;position:sticky;top:66px;z-index:199}
+.prg-bg{max-width:780px;margin:0 auto;background:rgba(126,184,247,.12);height:2px;border-radius:2px;overflow:hidden}
+.prg-fill{background:linear-gradient(90deg,var(--blue-brand),var(--gold));height:100%;border-radius:2px;transition:width .4s ease;width:0%}
+
+/* MAIN */
+.main{max-width:780px;margin:0 auto;padding:28px 20px 100px}
+.step{display:none}
+.step.active{display:block;animation:fu .3s ease}
+@keyframes fu{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+/* WELCOME */
+.welcome{background:linear-gradient(160deg,var(--navy-deep) 0%,var(--navy) 50%,var(--navy-mid) 100%);border-radius:16px;padding:48px 40px;color:#fff;position:relative;overflow:hidden;border:1px solid rgba(126,184,247,.08)}
+.welcome::before{content:'';position:absolute;top:-60px;left:-60px;width:220px;height:220px;background:radial-gradient(circle,rgba(126,184,247,.06) 0%,transparent 70%);border-radius:50%}
+.welcome::after{content:'';position:absolute;bottom:-80px;right:-80px;width:260px;height:260px;background:radial-gradient(circle,rgba(184,150,90,.10) 0%,transparent 70%);border-radius:50%}
+.w-title{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:400;line-height:1.15;margin-bottom:6px;letter-spacing:-.3px}
+.w-sub{font-size:10.5px;color:var(--blue-brand);letter-spacing:2.8px;text-transform:uppercase;margin-bottom:28px;opacity:.85}
+.w-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(126,184,247,.08);border:1px solid rgba(126,184,247,.2);border-radius:8px;padding:8px 14px;margin-bottom:20px}
+.w-badge span{font-size:11px;color:var(--blue-brand);letter-spacing:.5px}
+.w-info{background:rgba(126,184,247,.04);border:1px solid rgba(126,184,247,.15);border-radius:12px;padding:20px 24px;margin-bottom:20px}
+.w-info p{font-size:13px;color:rgba(255,255,255,.72);line-height:1.75;margin-bottom:8px}
+.w-info p:last-child{margin-bottom:0}
+.w-info strong{color:rgba(255,255,255,.9)}
+.w-note{font-size:13px;color:rgba(255,255,255,.5);line-height:1.7}
+.w-note strong{color:rgba(255,255,255,.82)}
+
+/* STEP HEADER */
+.s-hdr{margin-bottom:20px}
+.s-title{font-family:'Cormorant Garamond',serif;font-size:27px;color:var(--navy);font-weight:500;margin-bottom:3px}
+.s-desc{font-size:13px;color:var(--muted)}
+
+/* CARD */
+.card{background:var(--card);border-radius:12px;padding:26px 28px;margin-bottom:18px;border:1px solid var(--border);box-shadow:0 1px 4px rgba(0,0,0,.04)}
+.c-hdr{display:flex;align-items:center;gap:11px;margin-bottom:22px;padding-bottom:14px;border-bottom:1px solid var(--border)}
+.c-icon{width:34px;height:34px;background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 100%);border:1px solid rgba(126,184,247,.15);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.c-title{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--navy);font-weight:500}
+.c-sub{font-size:11px;color:var(--muted);margin-top:2px}
+.scale-badge{display:inline-block;font-size:10px;color:var(--blue-brand);background:rgba(126,184,247,.08);border:1px solid rgba(126,184,247,.2);border-radius:4px;padding:2px 8px;margin-top:4px;letter-spacing:.3px}
+
+/* FORM */
+.fg{margin-bottom:16px}
+.fg:last-child{margin-bottom:0}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+label.lbl{display:block;font-size:11px;font-weight:600;color:var(--navy);letter-spacing:.5px;text-transform:uppercase;margin-bottom:5px}
+.lbl .opt{font-weight:300;color:var(--muted);text-transform:none;font-size:10px}
+.lbl .req{color:var(--red);margin-left:2px}
+
+input[type=text],input[type=email],input[type=tel],input[type=number],input[type=date],input[type=time],select,textarea{width:100%;padding:9px 13px;border:1.5px solid var(--border);border-radius:8px;font-family:'Outfit',sans-serif;font-size:13.5px;color:var(--text);background:#fff;outline:none;transition:border-color .18s,box-shadow .18s;-webkit-appearance:none;appearance:none}
+input:focus,select:focus,textarea:focus{border-color:var(--blue-brand);box-shadow:0 0 0 3px rgba(126,184,247,.12)}
+input.err,select.err,textarea.err{border-color:var(--red)!important}
+textarea{resize:vertical;min-height:76px;line-height:1.6}
+select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7' viewBox='0 0 12 7'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2364748B' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:34px;cursor:pointer}
+
+/* RADIO/CHECK */
+.rg,.cg{display:flex;flex-direction:column;gap:7px}
+.rg.h{flex-direction:row;flex-wrap:wrap;gap:6px 16px}
+.ri,.ci{display:flex;align-items:flex-start;gap:9px;cursor:pointer}
+.ri input[type=radio],.ci input[type=checkbox]{width:15px;height:15px;accent-color:var(--blue-brand);flex-shrink:0;cursor:pointer;margin-top:2px;border:none;box-shadow:none;padding:0}
+.ri span,.ci span{font-size:13px;color:var(--text);line-height:1.5}
+
+/* LIKERT TABLE */
+.likert-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.likert{width:100%;border-collapse:collapse;min-width:520px}
+.likert thead th{font-size:11px;font-weight:600;color:var(--navy);text-transform:uppercase;letter-spacing:.4px;padding:8px 10px;border-bottom:2px solid var(--border);text-align:center;white-space:nowrap}
+.likert thead th:first-child{text-align:left;min-width:240px}
+.likert tbody tr{border-bottom:1px solid var(--border)}
+.likert tbody tr:last-child{border-bottom:none}
+.likert tbody tr:hover{background:#F8FAFC}
+.likert tbody td{padding:10px;vertical-align:middle}
+.likert tbody td:first-child{font-size:13px;color:var(--text);line-height:1.5;padding-right:16px}
+.likert tbody td:not(:first-child){text-align:center}
+.likert tbody td input[type=radio]{width:16px;height:16px;accent-color:var(--blue-brand);cursor:pointer}
+.q-num{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;background:var(--navy);color:#fff;border-radius:4px;font-size:10px;font-weight:600;margin-right:8px;flex-shrink:0}
+
+/* INFO / WARN */
+.info-box{background:#EFF6FF;border-left:3px solid var(--blue-brand);border-radius:0 8px 8px 0;padding:11px 15px;margin-bottom:16px}
+.info-box p{font-size:12.5px;color:#1E3A8A;line-height:1.65}
+.info-box p strong{font-weight:600}
+.warn-box{background:#FFFBEB;border-left:3px solid var(--amber);border-radius:0 8px 8px 0;padding:11px 15px;margin-bottom:16px}
+.warn-box p{font-size:12.5px;color:#78350F;line-height:1.65}
+.alert-box{background:#FEF2F2;border-left:3px solid var(--red);border-radius:0 8px 8px 0;padding:11px 15px;margin-top:12px;display:none}
+.alert-box p{font-size:12.5px;color:#7F1D1D;line-height:1.65}
+.alert-box.vis{display:block}
+
+/* DIVIDER */
+.div{height:1px;background:var(--border);margin:20px 0}
+
+/* NAV */
+.nav{position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,.97);backdrop-filter:blur(8px);border-top:1px solid var(--border);padding:14px 24px;z-index:200;box-shadow:0 -4px 24px rgba(11,22,41,.08)}
+.nav-in{max-width:780px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.btn{padding:11px 26px;border-radius:8px;font-family:'Outfit',sans-serif;font-size:14px;font-weight:500;cursor:pointer;border:none;transition:all .18s;letter-spacing:.2px}
+.btn:disabled{opacity:.6;cursor:not-allowed}
+.btn-p{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 100%);color:#fff;box-shadow:0 2px 12px rgba(11,22,41,.25)}
+.btn-p:hover:not(:disabled){opacity:.88;transform:translateY(-1px)}
+.btn-g{background:transparent;color:var(--muted);border:1.5px solid var(--border)}
+.btn-g:hover:not(:disabled){border-color:var(--navy);color:var(--navy)}
+.btn-s{background:linear-gradient(135deg,#059669 0%,#047857 100%);color:#fff;box-shadow:0 2px 12px rgba(5,150,105,.25)}
+.btn-s:hover:not(:disabled){opacity:.88;transform:translateY(-1px)}
+
+/* SUCCESS */
+.success{display:none;text-align:center;padding:60px 36px;background:var(--card);border-radius:16px;border:1px solid var(--border)}
+.suc-icon{width:64px;height:64px;background:#ECFDF5;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 22px;font-size:30px}
+.suc-title{font-family:'Cormorant Garamond',serif;font-size:29px;color:var(--navy);margin-bottom:12px}
+.suc-text{font-size:14px;color:var(--muted);line-height:1.7}
+
+/* PRINT */
+@media print{.hdr,.prg-wrap,.nav{display:none!important}.step{display:block!important}.card{box-shadow:none;break-inside:avoid}.main{padding:0}body{background:#fff}}
+
+/* RESPONSIVE */
+@media(max-width:580px){.row2,.row3{grid-template-columns:1fr}.welcome{padding:32px 22px}.card{padding:18px 16px}.rg.h{flex-direction:column}.likert{min-width:400px}.likert thead th{padding:6px 6px;font-size:10px}.likert tbody td{padding:8px 6px}}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <div class="hdr-in">
+    <div>
+      <span class="logo-name">Dr. Hiago Amorim</span>
+      <span class="logo-sub">Medicina Metabólica da Mente</span>
+    </div>
+    <div>
+      <span class="step-ctr" id="stepCtr">Bem-vindo</span>
+      <span class="crm-badge">CRM-MA 10289 · RQE 6806</span>
+    </div>
+  </div>
+</div>
+<div class="prg-wrap">
+  <div class="prg-bg"><div class="prg-fill" id="prgFill"></div></div>
+</div>
+
+<div class="main">
+<form id="mainForm" action="https://api.web3forms.com/submit" method="POST" novalidate>
+  <input type="hidden" name="access_key"   value="0c6d5952-0282-433c-9077-ebc0b2c2fcfd">
+  <input type="hidden" name="subject"      value="📊 Questionário de Triagem — Dr. Hiago Amorim">
+  <input type="hidden" name="from_name"    value="Triagem Psicológica — Medicina Metabólica da Mente">
+  <input type="hidden" name="pontuacoes_calculadas" id="scoreField" value="">
+  <input type="checkbox" name="botcheck" style="display:none">
+
+  <!-- ═══ STEP 0 — BEM-VINDO ═══ -->
+  <div class="step active" id="step-0">
+    <div class="welcome">
+      <div class="w-title">Questionário de Triagem</div>
+      <div class="w-sub">Versão A · Avaliação Inicial</div>
+      <div class="w-badge"><span>🔒 Sigilo médico total · Suas respostas chegam apenas ao Dr. Hiago</span></div>
+      <div class="w-info">
+        <p>Este questionário reúne <strong>8 instrumentos clínicos validados</strong> para rastreamento de saúde mental, sono, comportamento alimentar, atividade física e uso de álcool.</p>
+        <p>Não há respostas certas ou erradas. Responda com honestidade — quanto mais preciso você for, mais eficiente será seu atendimento.</p>
+        <p><strong>Importante:</strong> Este questionário é uma ferramenta de rastreamento clínico. Não é um diagnóstico. Os resultados serão interpretados pelo Dr. Hiago Amorim em conjunto com sua avaliação clínica completa.</p>
+      </div>
+      <p class="w-note">Tempo estimado: <strong>20 a 25 minutos</strong> · <strong>8 escalas</strong> · Todas validadas para o português brasileiro</p>
+    </div>
+  </div>
+
+  <!-- ═══ STEP 1 — IDENTIFICAÇÃO ═══ -->
+  <div class="step" id="step-1">
+    <div class="s-hdr">
+      <div class="s-title">Identificação</div>
+      <div class="s-desc">Dados utilizados exclusivamente para vinculação ao seu prontuário clínico.</div>
+    </div>
+    <div class="card">
+      <div class="c-hdr"><div class="c-icon">👤</div><div><div class="c-title">Dados Pessoais</div></div></div>
+      <div class="fg">
+        <label class="lbl">Nome completo <span class="req">*</span></label>
+        <input type="text" name="nome_completo" required placeholder="Seu nome completo">
+      </div>
+      <div class="row2">
+        <div class="fg">
+          <label class="lbl">Data de nascimento <span class="req">*</span></label>
+          <input type="date" name="data_nascimento" id="dataNasc" required>
+        </div>
+        <div class="fg">
+          <label class="lbl">Sexo biológico <span class="req">*</span></label>
+          <select name="sexo_biologico" id="sexoBio" required>
+            <option value="">Selecione</option>
+            <option value="M">Masculino</option>
+            <option value="F">Feminino</option>
+          </select>
+        </div>
+      </div>
+      <div class="row2">
+        <div class="fg">
+          <label class="lbl">WhatsApp <span class="req">*</span></label>
+          <input type="tel" name="telefone" required placeholder="(99) 99999-9999">
+        </div>
+        <div class="fg">
+          <label class="lbl">Este preenchimento é para</label>
+          <select name="motivo_preenchimento">
+            <option value="">Selecione</option>
+            <option>Primeira consulta</option>
+            <option>Retorno / acompanhamento</option>
+            <option>Solicitado pelo Dr. Hiago</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ STEP 2 — PHQ-9 ═══ -->
+  <div class="step" id="step-2">
+    <div class="s-hdr">
+      <div class="s-title">Rastreamento de Depressão</div>
+      <div class="s-desc">PHQ-9 — Patient Health Questionnaire</div>
+    </div>
+    <div class="card">
+      <div class="c-hdr">
+        <div class="c-icon">🧠</div>
+        <div>
+          <div class="c-title">PHQ-9</div>
+          <div class="c-sub">Durante as últimas 2 semanas, com que frequência você foi incomodado(a) pelos problemas abaixo?</div>
+          <span class="scale-badge">Patient Health Questionnaire-9</span>
+        </div>
+      </div>
+      <div class="likert-wrap">
+        <table class="likert" id="phq9-table">
+          <thead>
+            <tr>
+              <th>Problema</th>
+              <th>Nenhuma vez</th>
+              <th>Vários dias</th>
+              <th>Mais da metade dos dias</th>
+              <th>Quase todos os dias</th>
+            </tr>
+          </thead>
+          <tbody id="phq9-body"></tbody>
+        </table>
+      </div>
+      <div class="alert-box" id="phq9-alert">
+        <p>⚠️ <strong>Nota clínica:</strong> Você indicou pensamentos de se machucar ou que seria melhor estar morto(a). Se estiver passando por um momento difícil, por favor entre em contato com o Dr. Hiago ou ligue para o CVV: <strong>188</strong> (24h, gratuito).</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ STEP 3 — GAD-7 ═══ -->
+  <div class="step" id="step-3">
+    <div class="s-hdr">
+      <div class="s-title">Rastreamento de Ansiedade</div>
+      <div class="s-desc">GAD-7 — Generalized Anxiety Disorder Scale</div>
+    </div>
+    <div class="card">
+      <div class="c-hdr">
+        <div class="c-icon">😰</div>
+        <div>
+          <div class="c-title">GAD-7</div>
+          <div class="c-sub">Durante as últimas 2 semanas, com que frequência você foi incomodado(a) pelos problemas abaixo?</div>
+          <span class="scale-badge">Generalized Anxiety Disorder Scale</span>
+        </div>
+      </div>
+      <div class="likert-wrap">
+        <table class="likert">
+          <thead>
+            <tr>
+              <th>Problema</th>
+              <th>Nenhuma vez</th>
+              <th>Vários dias</th>
+              <th>Mais da metade dos dias</th>
+              <th>Quase todos os dias</th>
+            </tr>
+          </thead>
+          <tbody id="gad7-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ STEP 4 — ASRS ═══ -->
+  <div class="step" id="step-4">
+    <div class="s-hdr">
+      <div class="s-title">Rastreamento de TDAH</div>
+      <div class="s-desc">ASRS-v1.1 — Adult ADHD Self-Report Scale</div>
+    </div>
+    <div class="card">
+      <div class="c-hdr">
+        <div class="c-icon">⚡</div>
+        <div>
+          <div class="c-title">ASRS-v1.1 — Parte A</div>
+          <div class="c-sub">Como você se sentiu e se comportou nos últimos 6 meses? Marque a opção que melhor descreve cada situação.</div>
+          <span class="scale-badge">Adult ADHD Self-Report Scale · Parte A — Triagem</span>
+        </div>
+      </div>
+      <div class="likert-wrap">
+        <table class="likert">
+          <thead>
+            <tr>
+              <th>Situação</th>
+              <th>Nunca</th>
+              <th>Raramente</th>
+              <th>Às vezes</th>
+              <th>Frequentemente</th>
+              <th>Muito freq.</th>
+            </tr>
+          </thead>
+          <tbody id="asrs-a-body"></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card">
+      <div class="c-hdr">
+        <div class="c-icon">⚡</div>
+        <div>
+          <div class="c-title">ASRS-v1.1 — Parte B</div>
+          <div class="c-sub">Continuação. Mesma instrução anterior.</div>
+          <span class="scale-badge">Adult ADHD Self-Report Scale · Parte B</span>
+        </div>
+      </div>
+      <div class="likert-wrap">
+        <table class="likert">
+          <thead>
+            <tr>
+              <th>Situação</th>
+              <th>Nunca</th>
+              <th>Raramente</th>
+              <th>Às vezes</th>
+              <th>Frequentemente</th>
+              <th>Muito freq.</th>
+            </tr>
+          </thead>
+          <tbody id="asrs-b-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ STEP 5 — BES ═══ -->
+  <div class="step" id="step-5">
+    <div class="s-hdr">
+      <div class="s-title">Rastreamento de Compulsão Alimentar</div>
+      <div class="s-desc">BES — Binge Eating Scale</div>
+    </div>
+    <div class="card">
+      <div class="c-hdr">
+        <div class="c-icon">🍽️</div>
+        <div>
+          <div class="c-title">BES — Escala de Compulsão Alimentar</div>
+          <div class="c-sub">Para cada grupo abaixo, leia todas as afirmações e marque a que melhor descreve você.</div>
+          <span class="scale-badge">Binge Eating Scale</span>
+        </div>
+      </div>
+      <div id="bes-body"></div>
+    </div>
+  </div>
+
+  <!-- ═══ STEP 6 — PSQI ═══ -->
+  <div class="step" id="step-6">
+    <div class="s-hdr">
+      <div class="s-title">Qualidade do Sono</div>
+      <div class="s-desc">PSQI — Pittsburgh Sleep Quality Index</div>
+    </div>
+    <div class="card">
+      <div class="c-hdr">
+        <div class="c-icon">😴</div>
+        <div>
+          <div class="c-title">PSQI — Índice de Qualidade do Sono</div>
+          <div class="c-sub">As perguntas abaixo se referem ao seu sono habitual no último mês.</div>
+          <span class="scale-badge">Pittsburgh Sleep Quality Index</span>
+        </div>
+      </div>
+      <div class="row2">
+        <div class="fg">
+          <label class="lbl">1. Geralmente a que horas você vai dormir à noite?</label>
+          <input type="time" name="psqi_q1_bedtime" id="psqi_q1">
+        </div>
+        <div class="fg">
+          <label class="lbl">3. Geralmente a que horas você acorda de manhã?</label>
+          <input type="time" name="psqi_q3_waketime" id="psqi_q3">
+        </div>
+      </div>
+      <div class="row2">
+        <div class="fg">
+          <label class="lbl">2. Quanto tempo (em minutos) você leva para adormecer?</label>
+          <input type="number" name="psqi_q2_latency" id="psqi_q2" min="0" max="240" placeholder="Ex: 20">
+        </div>
+        <div class="fg">
+          <label class="lbl">4. Quantas horas você realmente dorme por noite? <span class="opt">(pode ser diferente do tempo na cama)</span></label>
+          <input type="number" name="psqi_q4_duration" id="psqi_q4" min="0" max="24" step="0.5" placeholder="Ex: 6.5">
+        </div>
+      </div>
+      <div class="div"></div>
+      <p style="font-size:13px;color:var(--muted);margin-bottom:14px;font-weight:500;">5. No último mês, com que frequência você teve dificuldade para dormir por causa dos problemas abaixo?</p>
+      <div class="likert-wrap">
+        <table class="likert">
+          <thead>
+            <tr>
+              <th>Problema</th>
+              <th>Nenhuma vez</th>
+              <th>&lt; 1x/semana</th>
+              <th>1-2x/semana</th>
+              <th>≥ 3x/semana</th>
+            </tr>
+          </thead>
+          <tbody id="psqi-q5-body"></tbody>
+        </table>
+      </div>
+      <div class="div"></div>
+      <div class="fg">
+        <label class="lbl">6. Com que frequência você tomou remédio para dormir no último mês?</label>
+        <div class="rg" style="margin-top:6px">
+          <label class="ri"><input type="radio" name="psqi_q6" value="0"><span>Nenhuma vez no último mês</span></label>
+          <label class="ri"><input type="radio" name="psqi_q6" value="1"><span>Menos de uma vez por semana</span></label>
+          <label class="ri"><input type="radio" name="psqi_q6" value="2"><span>Uma ou duas vezes por semana</span></label>
+          <label class="ri"><input type="radio" name="psqi_q6" value="3"><span>Três ou mais vezes por semana</span></label>
+        </div>
+      </div>
+      <div class="fg">
+        <label class="lbl">7. Com que frequência você teve dificuldade para ficar acordado(a) ao dirigir, comer ou participar de atividades sociais no último mês?</label>
+        <div class="rg" style="margin-top:6px">
+          <label class="ri"><input type="radio" name="psqi_q7" value="0"><span>Nenhuma vez no último mês</span></label>
+          <label class="ri"><input type="radio" name="psqi_q7" value="1"><span>Menos de uma vez por semana</span></label>
+          <label class="ri"><input type="radio" name="psqi_q7" value="2"><span>Uma ou duas vezes por semana</span></label>
+          <label class="ri"><input type="radio" name="psqi_q7" value="3"><span>Três ou mais vezes por semana</span></label>
+        </div>
+      </div>
+      <div class="fg">
+        <label class="lbl">8. Quão problemático foi manter entusiasmo para realizar suas atividades habituais no último mês?</label>
+        <div class="rg" style="margin-top:6px">
+          <label class="ri"><input type="radio" name="psqi_q8" value="0"><span>Nenhum problema</span></label>
+          <label class="ri"><input type="radio" name="psqi_q8" value="1"><span>Um problema leve</span></label>
+          <label class="ri"><input type="radio" name="psqi_q8" value="2"><span>Um problema razoável</span></label>
+          <label class="ri"><input type="radio" name="psqi_q8" value="3"><span>Um grande problema</span></label>
+        </div>
+      </div>
+      <div class="fg">
+        <label class="lbl">9. Como você avaliaria a qualidade geral do seu sono no último mês?</label>
+        <div class="rg" style="margin-top:6px">
+          <label class="ri"><input type="radio" name="psqi_q9" value="0"><span>Muito boa</span></label>
+          <label class="ri"><input type="radio" name="psqi_q9" value="1"><span>Boa</span></label>
+          <label class="ri"><input type="radio" name="psqi_q9" value="2"><span>Ruim</span></label>
+          <label class="ri"><input type="radio" name="psqi_q9" value="3"><span>Muito ruim</span></label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ STEP 7 — STOP-BANG ═══ -->
+  <div class="step" id="step-7">
+    <div class="s-hdr">
+      <div class="s-title">Rastreamento de Apneia do Sono</div>
+      <div class="s-desc">STOP-Bang — Questionário de Risco para Apneia Obstrutiva do Sono</div>
+    </div>
+    <div class="card">
+      <div class="c-hdr">
+        <div class="c-icon">😤</div>
+        <div>
+          <div class="c-title">STOP-Bang</div>
+          <div class="c-sub">Responda Sim ou Não para cada pergunta abaixo.</div>
+          <span class="scale-badge">STOP-Bang Questionnaire</span>
+        </div>
+      </div>
+      <div id="stopbang-body"></div>
+    </div>
+  </div>
+
+  <!-- ═══ STEP 8 — AUDIT ═══ -->
+  <div class="step" id="step-8">
+    <div class="s-hdr">
+      <div class="s-title">Uso de Álcool</div>
+      <div class="s-desc">AUDIT — Alcohol Use Disorders Identification Test</div>
+    </div>
+    <div class="card">
+      <div class="c-hdr">
+        <div class="c-icon">🍺</div>
+        <div>
+          <div class="c-title">AUDIT</div>
+          <div class="c-sub">As perguntas abaixo se referem ao uso de bebidas alcoólicas no último ano. Uma dose = 1 lata de cerveja, 1 taça de vinho ou 1 dose de destilado.</div>
+          <span class="scale-badge">Alcohol Use Disorders Identification Test</span>
+        </div>
+      </div>
+      <div id="audit-body"></div>
+    </div>
+  </div>
+
+  <!-- ═══ STEP 9 — IPAQ ═══ -->
+  <div class="step" id="step-9">
+    <div class="s-hdr">
+      <div class="s-title">Atividade Física</div>
+      <div class="s-desc">IPAQ — Questionário Internacional de Atividade Física (versão curta)</div>
+    </div>
+    <div class="card">
+      <div class="c-hdr">
+        <div class="c-icon">🏃</div>
+        <div>
+          <div class="c-title">IPAQ — Versão Curta</div>
+          <div class="c-sub">Perguntas sobre sua atividade física em uma semana normal. Considere atividades no trabalho, deslocamento, lazer e exercício.</div>
+          <span class="scale-badge">International Physical Activity Questionnaire</span>
+        </div>
+      </div>
+
+      <div class="warn-box"><p>Considere apenas atividades realizadas por <strong>pelo menos 10 minutos contínuos</strong> de cada vez.</p></div>
+
+      <div class="fg" style="background:#F8FAFC;border-radius:10px;padding:16px;margin-bottom:16px;">
+        <p style="font-size:12px;font-weight:600;color:var(--navy);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px">🚶 Caminhada</p>
+        <div class="row2">
+          <div class="fg">
+            <label class="lbl">Dias por semana em que caminhou ≥10 min</label>
+            <input type="number" name="ipaq_walk_days" id="ipaq_wd" min="0" max="7" placeholder="0 a 7 dias">
+          </div>
+          <div class="fg">
+            <label class="lbl">Tempo total caminhando por dia (minutos)</label>
+            <input type="number" name="ipaq_walk_min" id="ipaq_wm" min="0" max="840" placeholder="Ex: 30">
+          </div>
+        </div>
+      </div>
+
+      <div class="fg" style="background:#F8FAFC;border-radius:10px;padding:16px;margin-bottom:16px;">
+        <p style="font-size:12px;font-weight:600;color:var(--navy);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">🚴 Atividade Moderada</p>
+        <p style="font-size:12px;color:var(--muted);margin-bottom:10px">Faz o coração bater um pouco mais forte — pedalar em ritmo leve, nadar devagar, dançar, ginástica aeróbica leve, vôlei, carregar pesos leves.</p>
+        <div class="row2">
+          <div class="fg">
+            <label class="lbl">Dias por semana</label>
+            <input type="number" name="ipaq_mod_days" id="ipaq_md" min="0" max="7" placeholder="0 a 7 dias">
+          </div>
+          <div class="fg">
+            <label class="lbl">Tempo por dia (minutos)</label>
+            <input type="number" name="ipaq_mod_min" id="ipaq_mm" min="0" max="840" placeholder="Ex: 45">
+          </div>
+        </div>
+      </div>
+
+      <div class="fg" style="background:#F8FAFC;border-radius:10px;padding:16px;">
+        <p style="font-size:12px;font-weight:600;color:var(--navy);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">🏋️ Atividade Vigorosa</p>
+        <p style="font-size:12px;color:var(--muted);margin-bottom:10px">Faz o coração bater muito mais forte — correr, pedalar rápido, jogar futebol/basquete, ginástica aeróbica intensa, serviços domésticos pesados.</p>
+        <div class="row2">
+          <div class="fg">
+            <label class="lbl">Dias por semana</label>
+            <input type="number" name="ipaq_vig_days" id="ipaq_vd" min="0" max="7" placeholder="0 a 7 dias">
+          </div>
+          <div class="fg">
+            <label class="lbl">Tempo por dia (minutos)</label>
+            <input type="number" name="ipaq_vig_min" id="ipaq_vm" min="0" max="840" placeholder="Ex: 60">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ STEP 10 — ENVIO ═══ -->
+  <div class="step" id="step-10">
+    <div class="s-hdr">
+      <div class="s-title">Considerações Finais</div>
+      <div class="s-desc">Espaço livre antes de enviar.</div>
+    </div>
+    <div class="card">
+      <div class="c-hdr"><div class="c-icon">💬</div><div><div class="c-title">Observações Livres</div></div></div>
+      <div class="fg">
+        <label class="lbl">Há algo relevante que você queira adicionar antes de enviar?</label>
+        <textarea name="observacoes_livres" rows="4" placeholder="Contexto sobre sua saúde, sintomas recentes, eventos de vida, dúvidas, ou qualquer informação que considere importante para o Dr. Hiago."></textarea>
+      </div>
+    </div>
+    <div class="card" style="background:#F0FDF4;border-color:#BBF7D0;">
+      <p style="font-size:13px;color:#166534;line-height:1.75;text-align:center;">✅ Suas respostas serão enviadas diretamente ao <strong>Dr. Hiago Amorim</strong> e tratadas com total sigilo médico. Nenhuma pontuação ou classificação é exibida para você — os resultados serão discutidos em consulta.</p>
+    </div>
+  </div>
+
+</form>
+
+<!-- SUCCESS -->
+<div class="success" id="successWrap">
+  <div class="suc-icon">✅</div>
+  <div class="suc-title">Questionário enviado com sucesso!</div>
+  <p class="suc-text">O Dr. Hiago Amorim recebeu suas respostas e irá analisá-las antes da sua consulta.<br><br>Você pode fechar esta página. Em caso de dúvidas, entre em contato pelo <a href="https://bit.ly/drhiagoamorim" style="color:var(--navy)">Doctoralia</a>.</p>
+</div>
+</div>
+
+<div class="nav" id="navBar">
+  <div class="nav-in">
+    <button type="button" class="btn btn-g" id="btnBack" onclick="prev()" style="visibility:hidden">← Voltar</button>
+    <button type="button" class="btn btn-p" id="btnNext" onclick="next()">Começar →</button>
+  </div>
+</div>
+
+<script>
+/* ══════════════════════════════════════
+   DADOS DAS ESCALAS
+══════════════════════════════════════ */
+const PHQ9_ITEMS = [
+  'Pouco interesse ou pouco prazer em fazer as coisas',
+  'Se sentir "para baixo", deprimido(a) ou sem perspectiva',
+  'Dificuldade para adormecer ou permanecer dormindo, ou dormir mais do que de costume',
+  'Se sentir cansado(a) ou com pouca energia',
+  'Falta de apetite ou comer demais',
+  'Se sentir mal consigo mesmo(a) — ou achar que é um fracasso ou que decepcionou sua família ou a si mesmo(a)',
+  'Dificuldade para se concentrar nas coisas, como ler ou ver televisão',
+  'Lentidão para se movimentar ou falar, a ponto de outras pessoas perceberem. Ou o oposto: estar tão agitado(a) que você fica andando de um lado para o outro muito mais do que de costume',
+  'Pensar em se machucar de alguma forma ou que seria melhor estar morto(a)'
+];
+const PHQ9_OPTS = ['Nenhuma vez','Vários dias','Mais da metade dos dias','Quase todos os dias'];
+
+const GAD7_ITEMS = [
+  'Se sentir nervoso(a), ansioso(a) ou muito tenso(a)',
+  'Não ser capaz de impedir ou controlar as preocupações',
+  'Se preocupar muito com diversas coisas',
+  'Dificuldade para relaxar',
+  'Ficar tão agitado(a) que fica difícil permanecer quieto(a)',
+  'Ficar facilmente aborrecido(a) ou irritado(a)',
+  'Sentir medo como se algo horrível fosse acontecer'
+];
+
+const ASRS_A_ITEMS = [
+  'Com que frequência você comete erros por falta de atenção quando tem de trabalhar em algo chato ou difícil?',
+  'Com que frequência você tem dificuldade para manter a atenção em tarefas chatas ou repetitivas?',
+  'Com que frequência você tem dificuldade para se concentrar no que as pessoas dizem, mesmo falando diretamente com você?',
+  'Com que frequência você deixa um projeto pela metade depois que as partes mais difíceis já foram feitas?',
+  'Com que frequência você tem dificuldade para realizar um trabalho que exige organização?',
+  'Com que frequência você adia ou evita começar uma tarefa que exige muito esforço mental?'
+];
+const ASRS_B_ITEMS = [
+  'Com que frequência você coloca coisas nos lugares errados ou tem dificuldade para encontrá-las?',
+  'Com que frequência você se distrai com atividades ou barulhos ao seu redor?',
+  'Com que frequência você tem dificuldade para lembrar de compromissos ou obrigações?',
+  'Com que frequência você se mexe ou se contorce quando precisa ficar sentado(a) por muito tempo?',
+  'Com que frequência você se sente excessivamente ativo(a) e compelido(a) a fazer coisas, como se estivesse "a todo vapor"?',
+  'Com que frequência você comete erros ou faz coisas sem pensar direito?',
+  'Com que frequência você tem dificuldade para manter atenção em tarefas monótonas?',
+  'Com que frequência você tem dificuldade para prestar atenção ao que as pessoas estão dizendo?',
+  'Com que frequência você se distrai com barulhos ou movimentos ao redor?',
+  'Com que frequência você muda de assunto no meio de conversas?',
+  'Com que frequência você tem dificuldade para se organizar quando precisa fazer várias tarefas?',
+  'Com que frequência você tem dificuldade para terminar os detalhes finais de um projeto depois que a parte principal foi concluída?'
+];
+const ASRS_OPTS = ['Nunca','Raramente','Às vezes','Frequentemente','Muito frequentemente'];
+
+const BES_ITEMS = [
+  {q:'Sobre meu peso e aparência em situações sociais:', opts:[
+    {s:0,t:'Não me sinto constrangido(a) com meu peso ou tamanho do corpo quando estou com outras pessoas'},
+    {s:1,t:'Sinto-me preocupado(a) com como pareço para os outros, mas isso normalmente não me faz sentir desapontado(a) comigo mesmo(a)'},
+    {s:2,t:'Fico com vergonha do meu peso e tamanho. Isso me faz evitar alguns eventos sociais'},
+    {s:3,t:'Sinto-me muito envergonhado(a) do meu peso e fico me isolando dos outros'}
+  ]},
+  {q:'Sobre minha velocidade ao comer:', opts:[
+    {s:0,t:'Não tenho nenhuma dificuldade em comer devagar, de maneira adequada'},
+    {s:1,t:'Embora pareça que devoro os alimentos, não termino me sentindo empanturrado(a) por ter comido demais'},
+    {s:2,t:'Às vezes tendo a comer rapidamente e me sinto desconfortavelmente cheio(a) depois'},
+    {s:3,t:'Tenho o hábito de engolir minha comida sem mastigá-la. Quando isso acontece, geralmente me sinto muito cheio(a) e desconfortável'}
+  ]},
+  {q:'Sobre meu controle para comer:', opts:[
+    {s:0,t:'Me sinto capaz de controlar meus impulsos para comer quando quero'},
+    {s:1,t:'Sinto que falho em controlar meu comportamento alimentar mais do que a pessoa comum'},
+    {s:2,t:'Sinto-me totalmente incapaz de controlar meus impulsos para comer'},
+    {s:3,t:'Por me sentir tão incapaz de controlar meu comportamento alimentar, entro em desespero tentando ter controle'}
+  ]},
+  {q:'Sobre comer quando estou chateado(a) ou estressado(a):', opts:[
+    {s:0,t:'Não tenho o hábito de comer quando estou chateado(a)'},
+    {s:1,t:'Às vezes como quando estou chateado(a), mas frequentemente consigo me distrair e afastar minha mente da comida'},
+    {s:2,t:'Tenho o hábito regular de comer quando estou chateado(a) porque não consigo me ocupar com outras coisas'},
+    {s:3,t:'Tenho o hábito desesperado de comer quando estou chateado(a) porque não posso fazer nada para parar'}
+  ]},
+  {q:'Sobre a quantidade que costumo comer:', opts:[
+    {s:0,t:'Normalmente como a mesma quantidade de comida. Raramente como a ponto de me sentir desconfortavelmente cheio(a)'},
+    {s:1,t:'Às vezes como em excesso, geralmente nas refeições, e me sinto desconfortavelmente cheio(a) depois'},
+    {s:2,t:'Tenho o hábito regular de comer em excesso nas refeições e, ocasionalmente, também entre elas'},
+    {s:3,t:'Tenho o hábito de comer em excesso nas refeições e entre as refeições — raramente tenho fome, mas com frequência me sinto muito cheio(a)'}
+  ]},
+  {q:'Sobre como me sinto após comer demais:', opts:[
+    {s:0,t:'Não me sinto mal comigo mesmo(a) depois de comer em excesso'},
+    {s:1,t:'Depois de comer em excesso, ocasionalmente me sinto culpado(a) ou mal, mas na maior parte do tempo me sinto normal'},
+    {s:2,t:'Quase sempre me sinto muito culpado(a) e mal depois de comer em excesso'}
+  ]},
+  {q:'Sobre dietas e "quebrar" as regras:', opts:[
+    {s:0,t:'Não perco o controle total do meu comportamento alimentar quando estou em dieta, mesmo depois de períodos em que como demais'},
+    {s:1,t:'Às vezes, quando como algo proibido durante a dieta, sinto como se tivesse estragado tudo e acabo comendo ainda mais'},
+    {s:2,t:'Frequentemente, quando exagero durante uma dieta, penso: "Agora que estraguei tudo, para que me preocupar?" e continuo comendo'},
+    {s:3,t:'Tenho o hábito regular de iniciar dietas rígidas por conta própria, mas quebrá-las e comer de forma descontrolada. Meu comportamento alimentar fica cada vez mais prejudicado'}
+  ]},
+  {q:'Sobre episódios de comer grandes quantidades:', opts:[
+    {s:0,t:'Raramente como tanta comida a ponto de me sentir desconfortavelmente cheio(a)'},
+    {s:1,t:'Normalmente, cerca de uma vez por mês, como uma grande quantidade de comida e termino me sentindo muito cheio(a)'},
+    {s:2,t:'Tenho períodos regulares durante o mês nos quais como grandes quantidades de comida, nas refeições ou entre elas'},
+    {s:3,t:'Eu como tão excessivamente que regularmente me sinto desconfortavelmente cheio(a) depois das refeições e às vezes entre as refeições também'}
+  ]},
+  {q:'Sobre meu padrão de ingestão calórica ao longo do tempo:', opts:[
+    {s:0,t:'Meu padrão alimentar não varia muito. Não tenho períodos de restrição intensa seguidos de excessos'},
+    {s:1,t:'Às vezes, depois de comer demais, tendo a reduzir minha ingestão para compensar'},
+    {s:2,t:'Tenho o hábito regular de comer em excesso à noite. Pela manhã não tenho muita fome'},
+    {s:3,t:'Na vida adulta tive períodos de quase jejum seguidos de episódios de comer em excesso. É como se vivesse entre a privação e a festa'}
+  ]},
+  {q:'Sobre minha capacidade de parar de comer:', opts:[
+    {s:0,t:'Normalmente sou capaz de parar de comer quando quero. Sei quando "já chega"'},
+    {s:1,t:'De vez em quando tenho uma compulsão para comer que parece difícil de controlar'},
+    {s:2,t:'Frequentemente tenho compulsões fortes para comer que pareço não conseguir controlar, mas ocasionalmente consigo'},
+    {s:3,t:'Sinto compulsões fortes para comer que não consigo controlar. Não tenho sensação alguma de ser capaz de controlar meu comportamento alimentar'}
+  ]},
+  {q:'Sobre parar de comer quando me sinto cheio(a):', opts:[
+    {s:0,t:'Não tenho problema algum em parar de comer quando me sinto cheio(a)'},
+    {s:1,t:'Normalmente consigo parar quando me sinto cheio(a), mas ocasionalmente exagero, ficando desconfortavelmente cheio(a)'},
+    {s:2,t:'Tenho dificuldade para parar de comer depois que começo e geralmente preciso me forçar a parar'},
+    {s:3,t:'Por não conseguir parar de comer quando quero, às vezes preciso provocar vômito para aliviar o desconforto'}
+  ]},
+  {q:'Sobre meus pensamentos relacionados à comida:', opts:[
+    {s:0,t:'Não parece que estou comendo em excesso nem me sinto privado(a) de comida'},
+    {s:1,t:'Parece que vivo para comer, mas normalmente consigo equilibrar minha alimentação'},
+    {s:2,t:'Parece que não consigo pensar em nada além de comida. Sinto que vivo para comer'},
+    {s:3,t:'Tenho pensamentos tão intensos sobre comida que eles interferem na minha concentração no trabalho ou em outras atividades'}
+  ]},
+  {q:'Sobre culpa após comer demais:', opts:[
+    {s:0,t:'Como por prazer, mas não me sinto culpado(a) depois'},
+    {s:1,t:'Embora me sinta mal às vezes, permito-me comer o que quero. Na maioria das vezes tomo decisões saudáveis'},
+    {s:2,t:'Frequentemente me sinto culpado(a) depois de comer em excesso. Tenho sentimentos ruins sobre meu comportamento alimentar'}
+  ]},
+  {q:'Sobre preocupação com peso e engordar:', opts:[
+    {s:0,t:'Não me sinto ansioso(a) com meu peso ou com o medo de engordar'},
+    {s:1,t:'Às vezes me sinto ansioso(a) com meu peso, mas normalmente não me preocupo muito com isso'},
+    {s:2,t:'Frequentemente me sinto muito ansioso(a) sobre meu peso e o medo de engordar'},
+    {s:3,t:'Estou constantemente ansioso(a) sobre meu peso e o medo de engordar, a ponto de precisar de ajuda para parar de pensar nisso'}
+  ]},
+  {q:'Sobre o impacto do peso nas minhas atividades:', opts:[
+    {s:0,t:'Não faço nenhuma mudança em meu estilo de vida por causa do meu peso'},
+    {s:1,t:'Evito algumas atividades públicas por causa do meu peso'},
+    {s:2,t:'Frequentemente evito atividades públicas por causa do meu peso'},
+    {s:3,t:'Meu peso atrapalha consideravelmente todos os aspectos da minha vida social'}
+  ]},
+  {q:'Sobre minha imagem corporal:', opts:[
+    {s:0,t:'Não fico incomodado(a) com minha aparência nem me sinto pouco atraente por causa do meu peso'},
+    {s:1,t:'Há momentos em que me sinto insatisfeito(a) com minha aparência, mas esses sentimentos não me incomodam muito'},
+    {s:2,t:'Geralmente sinto vergonha e me sinto pouco atraente por causa do meu peso e tamanho'},
+    {s:3,t:'Tenho sentimentos extremamente negativos sobre minha aparência física relacionados ao peso, quase o tempo todo'}
+  ]}
+];
+
+const PSQI_Q5_ITEMS = [
+  {id:'5a', label:'Não conseguiu adormecer em até 30 minutos'},
+  {id:'5b', label:'Acordou no meio da noite ou de manhã cedo'},
+  {id:'5c', label:'Precisou levantar para ir ao banheiro'},
+  {id:'5d', label:'Não conseguiu respirar bem'},
+  {id:'5e', label:'Tossiu ou roncou muito alto'},
+  {id:'5f', label:'Sentiu muito frio'},
+  {id:'5g', label:'Sentiu muito calor'},
+  {id:'5h', label:'Teve pesadelos'},
+  {id:'5i', label:'Sentiu dores'},
+  {id:'5j', label:'Outro motivo'}
+];
+
+const STOPBANG_ITEMS = [
+  {id:'s', label:'S — Ronco: Você ronca alto (alto o suficiente para ser ouvido através de portas fechadas, ou seu parceiro(a) reclama do seu ronco)?'},
+  {id:'t', label:'T — Cansaço: Você frequentemente se sente cansado(a), fatigado(a) ou sonolento(a) durante o dia?'},
+  {id:'o', label:'O — Observado: Alguém observou que você para de respirar ou engasga durante o sono?'},
+  {id:'p', label:'P — Pressão: Você tem pressão alta ou está em tratamento para isso?'},
+  {id:'b', label:'B — IMC: Seu médico já disse que você está com obesidade (acima de 100kg, ou IMC acima de 35)?'},
+  {id:'a', label:'A — Idade: Você tem mais de 50 anos?'},
+  {id:'n', label:'N — Pescoço: Sua circunferência de pescoço é maior que 40 cm?'},
+  {id:'g', label:'G — Gênero: Seu sexo biológico é masculino?'}
+];
+
+const AUDIT_ITEMS = [
+  {id:'1', q:'Com que frequência você toma uma bebida contendo álcool?',
+   opts:[{v:0,t:'Nunca'},{v:1,t:'Uma vez ao mês ou menos'},{v:2,t:'De 2 a 4 vezes por mês'},{v:3,t:'De 2 a 3 vezes por semana'},{v:4,t:'4 ou mais vezes por semana'}]},
+  {id:'2', q:'Quando você bebe, quantas doses você toma em um dia normal?',
+   opts:[{v:0,t:'1 ou 2'},{v:1,t:'3 ou 4'},{v:2,t:'5 ou 6'},{v:3,t:'7 a 9'},{v:4,t:'10 ou mais'}]},
+  {id:'3', q:'Com que frequência você toma 5 doses ou mais em uma única ocasião?',
+   opts:[{v:0,t:'Nunca'},{v:1,t:'Menos de uma vez ao mês'},{v:2,t:'Mensalmente'},{v:3,t:'Semanalmente'},{v:4,t:'Todos ou quase todos os dias'}]},
+  {id:'4', q:'Nos últimos 12 meses, com que frequência você não conseguiu parar de beber depois de começar?',
+   opts:[{v:0,t:'Nunca'},{v:1,t:'Menos de uma vez ao mês'},{v:2,t:'Mensalmente'},{v:3,t:'Semanalmente'},{v:4,t:'Todos ou quase todos os dias'}]},
+  {id:'5', q:'Nos últimos 12 meses, com que frequência você deixou de fazer o que era esperado por causa do álcool?',
+   opts:[{v:0,t:'Nunca'},{v:1,t:'Menos de uma vez ao mês'},{v:2,t:'Mensalmente'},{v:3,t:'Semanalmente'},{v:4,t:'Todos ou quase todos os dias'}]},
+  {id:'6', q:'Nos últimos 12 meses, com que frequência você precisou beber pela manhã para se recuperar da bebedeira do dia anterior?',
+   opts:[{v:0,t:'Nunca'},{v:1,t:'Menos de uma vez ao mês'},{v:2,t:'Mensalmente'},{v:3,t:'Semanalmente'},{v:4,t:'Todos ou quase todos os dias'}]},
+  {id:'7', q:'Nos últimos 12 meses, com que frequência você se sentiu culpado(a) ou com remorso depois de beber?',
+   opts:[{v:0,t:'Nunca'},{v:1,t:'Menos de uma vez ao mês'},{v:2,t:'Mensalmente'},{v:3,t:'Semanalmente'},{v:4,t:'Todos ou quase todos os dias'}]},
+  {id:'8', q:'Nos últimos 12 meses, com que frequência você não conseguiu lembrar do que aconteceu na noite anterior porque havia bebido?',
+   opts:[{v:0,t:'Nunca'},{v:1,t:'Menos de uma vez ao mês'},{v:2,t:'Mensalmente'},{v:3,t:'Semanalmente'},{v:4,t:'Todos ou quase todos os dias'}]},
+  {id:'9', q:'Você já se machucou ou prejudicou alguém como resultado do uso de álcool?',
+   opts:[{v:0,t:'Não'},{v:2,t:'Sim, mas não nos últimos 12 meses'},{v:4,t:'Sim, nos últimos 12 meses'}]},
+  {id:'10', q:'Algum familiar, amigo(a), médico(a) ou profissional de saúde já demonstrou preocupação com seu uso de álcool ou sugeriu que você parasse?',
+   opts:[{v:0,t:'Não'},{v:2,t:'Sim, mas não nos últimos 12 meses'},{v:4,t:'Sim, nos últimos 12 meses'}]}
+];
+
+/* ══════════════════════════════════════
+   RENDERIZAÇÃO DAS ESCALAS
+══════════════════════════════════════ */
+function buildLikertRows(tbodyId, items, namePrefix, opts) {
+  const tbody = document.getElementById(tbodyId);
+  items.forEach((item, i) => {
+    const tr = document.createElement('tr');
+    let td = `<td><span class="q-num">${i+1}</span>${item}</td>`;
+    opts.forEach((opt, v) => {
+      td += `<td><input type="radio" name="${namePrefix}_q${i+1}" value="${v}" aria-label="${opt}"></td>`;
+    });
+    tr.innerHTML = td;
+    tbody.appendChild(tr);
+  });
+}
+
+function buildASRSRows(tbodyId, items, namePrefix) {
+  const tbody = document.getElementById(tbodyId);
+  items.forEach((item, i) => {
+    const tr = document.createElement('tr');
+    let td = `<td><span class="q-num">${i+1}</span>${item}</td>`;
+    ASRS_OPTS.forEach((opt, v) => {
+      td += `<td><input type="radio" name="${namePrefix}_q${i+1}" value="${v}" aria-label="${opt}"></td>`;
+    });
+    tr.innerHTML = td;
+    tbody.appendChild(tr);
+  });
+}
+
+function buildBES() {
+  const container = document.getElementById('bes-body');
+  BES_ITEMS.forEach((item, i) => {
+    const div = document.createElement('div');
+    div.style.cssText = 'margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid var(--border)';
+    if (i === BES_ITEMS.length - 1) div.style.borderBottom = 'none';
+    let html = `<p style="font-size:13px;font-weight:500;color:var(--navy);margin-bottom:8px"><span class="q-num">${i+1}</span>${item.q}</p><div class="rg">`;
+    item.opts.forEach(opt => {
+      html += `<label class="ri"><input type="radio" name="bes_q${i+1}" value="${opt.s}"><span>${opt.t}</span></label>`;
+    });
+    html += '</div>';
+    div.innerHTML = html;
+    container.appendChild(div);
+  });
+}
+
+function buildPSQIQ5() {
+  const tbody = document.getElementById('psqi-q5-body');
+  PSQI_Q5_ITEMS.forEach(item => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>${item.label}</td>` +
+      [0,1,2,3].map(v => `<td><input type="radio" name="psqi_q5${item.id}" value="${v}"></td>`).join('');
+    tbody.appendChild(tr);
+  });
+}
+
+function buildSTOPBang() {
+  const container = document.getElementById('stopbang-body');
+  STOPBANG_ITEMS.forEach((item, i) => {
+    const div = document.createElement('div');
+    div.style.cssText = 'display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid var(--border)';
+    if (i === STOPBANG_ITEMS.length - 1) div.style.borderBottom = 'none';
+    div.innerHTML = `
+      <p style="font-size:13px;color:var(--text);line-height:1.5;flex:1">${item.label}</p>
+      <div style="display:flex;gap:16px;flex-shrink:0">
+        <label class="ri"><input type="radio" name="sb_${item.id}" value="1"><span style="font-size:13px;color:var(--green);font-weight:500">Sim</span></label>
+        <label class="ri"><input type="radio" name="sb_${item.id}" value="0"><span style="font-size:13px;color:var(--muted);font-weight:500">Não</span></label>
+      </div>`;
+    container.appendChild(div);
+  });
+}
+
+function buildAUDIT() {
+  const container = document.getElementById('audit-body');
+  AUDIT_ITEMS.forEach((item, i) => {
+    const div = document.createElement('div');
+    div.style.cssText = 'margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid var(--border)';
+    if (i === AUDIT_ITEMS.length - 1) div.style.borderBottom = 'none';
+    let html = `<p style="font-size:13px;font-weight:500;color:var(--navy);margin-bottom:8px"><span class="q-num">${i+1}</span>${item.q}</p><div class="rg">`;
+    item.opts.forEach(opt => {
+      html += `<label class="ri"><input type="radio" name="audit_q${item.id}" value="${opt.v}"><span>${opt.t}</span></label>`;
+    });
+    html += '</div>';
+    div.innerHTML = html;
+    container.appendChild(div);
+  });
+}
+
+/* Build all scales on load */
+buildLikertRows('phq9-body', PHQ9_ITEMS, 'phq9', PHQ9_OPTS);
+buildLikertRows('gad7-body', GAD7_ITEMS, 'gad7', PHQ9_OPTS);
+buildASRSRows('asrs-a-body', ASRS_A_ITEMS, 'asrs_a');
+buildASRSRows('asrs-b-body', ASRS_B_ITEMS, 'asrs_b');
+buildBES();
+buildPSQIQ5();
+buildSTOPBang();
+buildAUDIT();
+
+/* PHQ-9 item 9 safety alert */
+document.addEventListener('change', e => {
+  if (e.target.name === 'phq9_q9') {
+    const alert = document.getElementById('phq9-alert');
+    alert.classList.toggle('vis', parseInt(e.target.value) > 0);
+  }
+});
+
+/* ══════════════════════════════════════
+   PONTUAÇÃO AUTOMÁTICA
+══════════════════════════════════════ */
+function getVal(name) {
+  const el = document.querySelector(`[name="${name}"]:checked`);
+  return el ? parseInt(el.value) : null;
+}
+function getNum(id) {
+  const el = document.getElementById(id);
+  return el && el.value !== '' ? parseFloat(el.value) : null;
+}
+
+function scorePHQ9() {
+  let total = 0, missing = 0;
+  for (let i = 1; i <= 9; i++) {
+    const v = getVal(`phq9_q${i}`);
+    if (v === null) missing++; else total += v;
+  }
+  const q9 = getVal('phq9_q9');
+  let interp = total <= 4 ? 'Mínima' : total <= 9 ? 'Leve' : total <= 14 ? 'Moderada' : total <= 19 ? 'Moderadamente Grave' : 'Grave';
+  let flag = q9 !== null && q9 > 0 ? ' ⚠️ ITEM 9 POSITIVO — avaliar risco imediatamente' : '';
+  return `PHQ-9: ${total}/27 → Depressão ${interp}${missing > 0 ? ` (${missing} itens sem resposta)` : ''}${flag}`;
+}
+
+function scoreGAD7() {
+  let total = 0, missing = 0;
+  for (let i = 1; i <= 7; i++) {
+    const v = getVal(`gad7_q${i}`);
+    if (v === null) missing++; else total += v;
+  }
+  let interp = total <= 4 ? 'Mínima' : total <= 9 ? 'Leve' : total <= 14 ? 'Moderada' : 'Grave';
+  return `GAD-7: ${total}/21 → Ansiedade ${interp}${missing > 0 ? ` (${missing} itens sem resposta)` : ''}`;
+}
+
+function scoreASRS() {
+  const threshA = [2,2,2,3,3,3]; // items 1-3: ≥2, items 4-6: ≥3
+  let posA = 0, missingA = 0;
+  for (let i = 1; i <= 6; i++) {
+    const v = getVal(`asrs_a_q${i}`);
+    if (v === null) missingA++;
+    else if (v >= threshA[i-1]) posA++;
+  }
+  const screening = posA >= 4 ? 'POSITIVA — alta probabilidade de TDAH' : posA >= 2 ? 'SUGESTIVA — investigar mais' : 'NEGATIVA';
+  let totalB = 0, missingB = 0;
+  for (let i = 1; i <= 12; i++) {
+    const v = getVal(`asrs_b_q${i}`);
+    if (v === null) missingB++; else totalB += v;
+  }
+  return `ASRS-v1.1: Parte A — ${posA}/6 itens acima do limiar → Triagem ${screening} | Parte B — Score bruto: ${totalB}/48`;
+}
+
+function scoreBES() {
+  let total = 0, missing = 0;
+  for (let i = 1; i <= 16; i++) {
+    const v = getVal(`bes_q${i}`);
+    if (v === null) missing++; else total += v;
+  }
+  let interp = total <= 17 ? 'Ausente' : total <= 26 ? 'Moderada' : 'Grave';
+  return `BES: ${total}/46 → Compulsão Alimentar ${interp}${missing > 0 ? ` (${missing} itens sem resposta)` : ''}`;
+}
+
+function scorePSQI() {
+  const q9 = getVal('psqi_q9');
+  const C1 = q9 !== null ? q9 : null;
+
+  const q2 = getNum('psqi_q2');
+  const q2s = q2 === null ? null : q2 <= 15 ? 0 : q2 <= 30 ? 1 : q2 <= 60 ? 2 : 3;
+  const q5a = getVal('psqi_q5a') || 0;
+  const c2raw = q2s !== null ? q2s + q5a : null;
+  const C2 = c2raw === null ? null : c2raw === 0 ? 0 : c2raw <= 2 ? 1 : c2raw <= 4 ? 2 : 3;
+
+  const q4 = getNum('psqi_q4');
+  const C3 = q4 === null ? null : q4 > 7 ? 0 : q4 >= 6 ? 1 : q4 >= 5 ? 2 : 3;
+
+  const q1 = document.getElementById('psqi_q1').value;
+  const q3 = document.getElementById('psqi_q3').value;
+  let C4 = null;
+  if (q1 && q3 && q4 !== null) {
+    const [bH,bM] = q1.split(':').map(Number);
+    const [wH,wM] = q3.split(':').map(Number);
+    let bedMin = bH*60+bM, wakeMin = wH*60+wM;
+    if (wakeMin <= bedMin) wakeMin += 1440;
+    const tib = (wakeMin - bedMin) / 60;
+    if (tib > 0) {
+      const eff = (q4 / tib) * 100;
+      C4 = eff > 85 ? 0 : eff >= 75 ? 1 : eff >= 65 ? 2 : 3;
+    }
+  }
+
+  let q5sum = 0;
+  ['5b','5c','5d','5e','5f','5g','5h','5i','5j'].forEach(id => { q5sum += (getVal(`psqi_q${id}`) || 0); });
+  const C5 = q5sum === 0 ? 0 : q5sum <= 9 ? 1 : q5sum <= 18 ? 2 : 3;
+
+  const C6 = getVal('psqi_q6');
+  const q7 = getVal('psqi_q7') || 0;
+  const q8 = getVal('psqi_q8') || 0;
+  const c7raw = q7 + q8;
+  const C7 = c7raw === 0 ? 0 : c7raw <= 2 ? 1 : c7raw <= 4 ? 2 : 3;
+
+  const comps = [C1,C2,C3,C4,C5,C6,C7];
+  const valid = comps.filter(c => c !== null);
+  const global = valid.reduce((a,b) => a+b, 0);
+  const interp = valid.length < 4 ? 'dados insuficientes' : global > 5 ? 'Qualidade RUIM' : 'Qualidade BOA';
+  return `PSQI: Global ${global}/21 → ${interp} | C1=${C1??'?'} C2=${C2??'?'} C3=${C3??'?'} C4=${C4??'?'} C5=${C5} C6=${C6??'?'} C7=${C7}`;
+}
+
+function scoreSTOPBang() {
+  let total = 0, missing = 0;
+  ['s','t','o','p','b','a','n','g'].forEach(id => {
+    const v = getVal(`sb_${id}`);
+    if (v === null) missing++; else total += v;
+  });
+  const interp = total <= 2 ? 'Baixo risco' : total <= 4 ? 'Risco intermediário' : 'Alto risco';
+  return `STOP-Bang: ${total}/8 → ${interp} para Apneia Obstrutiva do Sono${missing > 0 ? ` (${missing} itens sem resposta)` : ''}`;
+}
+
+function scoreAUDIT() {
+  let total = 0, missing = 0;
+  AUDIT_ITEMS.forEach(item => {
+    const v = getVal(`audit_q${item.id}`);
+    if (v === null) missing++; else total += v;
+  });
+  const interp = total <= 7 ? 'Zona 1 — Uso de baixo risco' : total <= 15 ? 'Zona 2 — Uso de risco' : total <= 19 ? 'Zona 3 — Uso nocivo' : 'Zona 4 — Provável dependência';
+  return `AUDIT: ${total}/40 → ${interp}${missing > 0 ? ` (${missing} itens sem resposta)` : ''}`;
+}
+
+function scoreIPAQ() {
+  const wd = getNum('psqi_q1') !== null ? null : null; // dummy, use proper IDs
+  const walkD = parseFloat(document.getElementById('ipaq_wd').value) || 0;
+  const walkM = parseFloat(document.getElementById('ipaq_wm').value) || 0;
+  const modD  = parseFloat(document.getElementById('ipaq_md').value) || 0;
+  const modM  = parseFloat(document.getElementById('ipaq_mm').value) || 0;
+  const vigD  = parseFloat(document.getElementById('ipaq_vd').value) || 0;
+  const vigM  = parseFloat(document.getElementById('ipaq_vm').value) || 0;
+
+  const walkMET = 3.3 * walkM * walkD;
+  const modMET  = 4.0 * modM  * modD;
+  const vigMET  = 8.0 * vigM  * vigD;
+  const total   = walkMET + modMET + vigMET;
+
+  let cat;
+  if (vigD === 0 && modD === 0 && walkD === 0) cat = 'Sedentário';
+  else if (total < 600) cat = 'Insuficientemente ativo';
+  else if (vigD >= 3 && vigM >= 20 && vigMET >= 1500) cat = 'Muito ativo';
+  else if (total >= 3000) cat = 'Muito ativo';
+  else cat = 'Ativo';
+
+  return `IPAQ: MET-min/semana total = ${Math.round(total)} (caminhada: ${Math.round(walkMET)}, moderada: ${Math.round(modMET)}, vigorosa: ${Math.round(vigMET)}) → Classificação: ${cat}`;
+}
+
+function buildScoreSummary() {
+  return [
+    '══════ PONTUAÇÕES AUTOMÁTICAS ══════',
+    scorePHQ9(),
+    scoreGAD7(),
+    scoreASRS(),
+    scoreBES(),
+    scorePSQI(),
+    scoreSTOPBang(),
+    scoreAUDIT(),
+    scoreIPAQ(),
+    '════════════════════════════════════'
+  ].join('\n');
+}
+
+/* ══════════════════════════════════════
+   NAVEGAÇÃO
+══════════════════════════════════════ */
+const TOTAL = 11;
+let cur = 0;
+
+function showStep(n) {
+  document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+  const el = document.getElementById('step-'+n);
+  if (el) el.classList.add('active');
+  const pct = (n/(TOTAL-1))*100;
+  document.getElementById('prgFill').style.width = pct+'%';
+  document.getElementById('stepCtr').textContent = n === 0 ? 'Apresentação' : `Escala ${n} de ${TOTAL-1}`;
+  const back = document.getElementById('btnBack');
+  const next = document.getElementById('btnNext');
+  back.style.visibility = n === 0 ? 'hidden' : 'visible';
+  if (n === TOTAL-1) { next.textContent='Enviar Questionário ✓'; next.className='btn btn-s'; }
+  else if (n === 0) { next.textContent='Começar →'; next.className='btn btn-p'; }
+  else { next.textContent='Próximo →'; next.className='btn btn-p'; }
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function validate() {
+  const el = document.getElementById('step-'+cur);
+  if (!el) return true;
+  const req = el.querySelectorAll('[required]');
+  let ok = true;
+  req.forEach(f => { f.classList.remove('err'); if (!f.value.trim()) { f.classList.add('err'); ok=false; } });
+  if (!ok) {
+    const first = el.querySelector('.err');
+    if (first) first.scrollIntoView({behavior:'smooth',block:'center'});
+    alert('Por favor, preencha os campos obrigatórios antes de continuar.');
+  }
+  return ok;
+}
+
+function next() {
+  if (!validate()) return;
+  if (cur === TOTAL-1) { submit(); return; }
+  cur++; showStep(cur);
+}
+function prev() { if (cur > 0) { cur--; showStep(cur); } }
+
+async function submit() {
+  document.getElementById('scoreField').value = buildScoreSummary();
+  const form = document.getElementById('mainForm');
+  const btn  = document.getElementById('btnNext');
+  btn.textContent='Enviando...'; btn.disabled=true;
+  try {
+    const res  = await fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}});
+    const data = await res.json();
+    if (data.success) {
+      document.querySelectorAll('.step').forEach(s=>s.classList.remove('active'));
+      document.getElementById('successWrap').style.display='block';
+      document.getElementById('navBar').style.display='none';
+      document.getElementById('prgFill').style.width='100%';
+      document.getElementById('stepCtr').textContent='Concluído ✓';
+      window.scrollTo({top:0,behavior:'smooth'});
+    } else { throw new Error(); }
+  } catch(e) {
+    alert('Houve um problema ao enviar. Por favor, tente novamente ou entre em contato pelo Doctoralia.');
+    btn.textContent='Enviar Questionário ✓'; btn.disabled=false;
+  }
+}
+
+showStep(0);
+</script>
+</body>
+</html>
