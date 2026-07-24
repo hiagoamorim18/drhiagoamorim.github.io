@@ -33,7 +33,7 @@
     <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Hanken+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <!-- Schema Markup JSON-LD -->
     <script type="application/ld+json">
@@ -106,8 +106,8 @@
             --color-white: #FFFFFF;
             --color-white-80: rgba(255,255,255,0.8);
             --color-white-60: rgba(255,255,255,0.6);
-            --font-serif: 'Playfair Display', Georgia, serif;
-            --font-sans: 'DM Sans', -apple-system, sans-serif;
+            --font-serif: 'Newsreader', Georgia, serif;
+            --font-sans: 'Hanken Grotesk', -apple-system, sans-serif;
             --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
             --shadow-md: 0 4px 20px rgba(0,0,0,0.12);
             --shadow-lg: 0 8px 40px rgba(0,0,0,0.16);
@@ -177,6 +177,34 @@
             position: absolute; inset: 0;
             background: linear-gradient(105deg, rgba(10,15,30,0.85) 0%, rgba(10,15,30,0.55) 60%, rgba(10,15,30,0.3) 100%);
         }
+        /* ===== HERO SPLIT — desktop: texto à esquerda, foto contida no painel direito ===== */
+        @media (min-width: 1025px) {
+            .hero .hero-bg {
+                left: auto; right: 0; width: 43%;
+                background-position: center 12%;
+            }
+            .hero .hero-bg::after {
+                content: ''; position: absolute; inset: 0;
+                box-shadow: inset 70px 0 100px -20px var(--color-dark);
+            }
+            .hero .hero-overlay {
+                background: linear-gradient(90deg,
+                    var(--color-dark) 0%,
+                    var(--color-dark) 47%,
+                    rgba(10,15,30,0.82) 56%,
+                    rgba(10,15,30,0.28) 68%,
+                    rgba(10,15,30,0) 84%);
+            }
+            .hero .hero-content { max-width: 1200px; width: 100%; }
+            .hero .hero-title { max-width: 500px; font-size: clamp(3rem, 5vw, 4.75rem); }
+            .hero .hero-tagline, .hero .hero-subtitle { max-width: 480px; }
+            .hero .hero-credential {
+                position: static; transform: none; bottom: auto; left: auto;
+                justify-content: flex-start; gap: 1.25rem; margin: 2.5rem 0 0; padding: 0;
+            }
+            .hero .hero-stat { padding: 0 1.1rem; }
+            .hero .hero-stat:first-child { padding-left: 0; }
+        }
         .hero-content {
             position: relative; z-index: 2;
             max-width: 1200px; margin: 0 auto; padding: 0 2rem;
@@ -193,11 +221,11 @@
         .hero-badge::before { content: '★'; font-size: 0.75rem; }
         .hero-title {
             font-family: var(--font-serif); font-size: clamp(3rem, 7vw, 5.5rem);
-            font-weight: 700; color: var(--color-white); line-height: 1.1;
-            letter-spacing: -0.02em; margin-bottom: 1.5rem;
+            font-weight: 300; color: var(--color-white); line-height: 1.08;
+            letter-spacing: -0.01em; margin-bottom: 1.5rem;
             animation: fadeInUp 0.8s ease 0.2s both;
         }
-        .hero-title em { font-style: italic; color: var(--color-gold); }
+        .hero-title em { font-style: italic; font-weight: 400; color: var(--color-gold); }
         .hero-tagline {
             font-family: var(--font-serif); font-style: italic;
             font-size: clamp(1.15rem, 2.2vw, 1.5rem); color: var(--color-gold-light);
@@ -238,7 +266,7 @@
             padding: 0 1.5rem; border-right: 1px solid rgba(255,255,255,0.2);
         }
         .hero-stat:last-child { border-right: none; }
-        .hero-stat-number { font-family: var(--font-serif); font-size: 1.75rem; font-weight: 700; color: var(--color-gold); display: block; }
+        .hero-stat-number { font-family: var(--font-serif); font-size: 1.75rem; font-weight: 500; color: var(--color-gold); display: block; }
         .hero-stat-label { font-size: 0.75rem; color: var(--color-white-60); letter-spacing: 0.05em; text-transform: uppercase; }
         .scroll-indicator {
             position: absolute; bottom: 1rem; right: 2rem; z-index: 2;
@@ -254,8 +282,9 @@
             display: flex; justify-content: center; align-items: center; gap: 3rem;
             flex-wrap: wrap; border-bottom: 1px solid rgba(201,169,110,0.15);
         }
-        .proof-item { display: flex; align-items: center; gap: 0.75rem; }
-        .proof-icon { color: var(--color-gold); font-size: 1.1rem; }
+        .proof-item { display: flex; align-items: center; gap: 0.75rem; position: relative; padding-left: 3rem; }
+        .proof-item:first-child { padding-left: 0; }
+        .proof-item:not(:first-child)::before { content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 1px; height: 22px; background: rgba(201,169,110,0.25); }
         .proof-text { color: var(--color-white-80); font-size: 0.875rem; }
         .proof-text strong { color: var(--color-gold); font-weight: 600; font-size: 1rem; }
         .proof-stars { color: var(--color-gold); letter-spacing: -1px; font-size: 0.8rem; }
@@ -273,7 +302,7 @@
         }
         .section-title {
             font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 700; line-height: 1.2; letter-spacing: -0.02em;
+            font-weight: 300; line-height: 1.15; letter-spacing: -0.01em;
             margin-bottom: 1rem;
         }
         .section-title.light { color: var(--color-white); }
@@ -295,7 +324,7 @@
             padding: 1.25rem 1.5rem; border-radius: 16px; box-shadow: var(--shadow-gold);
             text-align: center; max-width: 160px;
         }
-        .about-image-badge strong { display: block; font-family: var(--font-serif); font-size: 2rem; font-weight: 700; line-height: 1; }
+        .about-image-badge strong { display: block; font-family: var(--font-serif); font-size: 2rem; font-weight: 500; line-height: 1; }
         .about-image-badge span { font-size: 0.75rem; font-weight: 500; opacity: 0.85; }
         .about-content { padding-left: 1rem; }
         .about-bio { font-size: 1.05rem; color: var(--color-text-light); line-height: 1.8; margin-bottom: 2rem; }
@@ -365,13 +394,11 @@
         /* ===== SIGNS ("é você?") ===== */
         .signs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
         .sign-item {
-            display: flex; align-items: center; gap: 1rem;
-            background: var(--color-cream-2); border: 1px solid rgba(201,169,110,0.18);
-            border-radius: 14px; padding: 1.25rem 1.5rem; transition: var(--transition);
+            background: var(--color-cream-2); border-left: 2px solid rgba(201,169,110,0.4);
+            padding: 1.1rem 1.5rem; transition: var(--transition);
         }
-        .sign-item:hover { border-color: var(--color-gold); transform: translateY(-3px); box-shadow: var(--shadow-sm); }
-        .sign-icon { font-size: 1.6rem; flex-shrink: 0; }
-        .sign-item p { font-size: 0.9rem; color: var(--color-text-light); line-height: 1.5; font-weight: 500; }
+        .sign-item:hover { border-left-color: var(--color-gold); background: rgba(201,169,110,0.08); }
+        .sign-item p { font-size: 0.95rem; color: var(--color-text); line-height: 1.5; font-weight: 500; }
 
         /* ===== FAQ ===== */
         .faq-list { display: flex; flex-direction: column; gap: 0.85rem; }
@@ -400,7 +427,7 @@
         .step-number {
             width: 5rem; height: 5rem; border-radius: 50%;
             background: var(--color-gold); color: var(--color-dark);
-            font-family: var(--font-serif); font-size: 1.5rem; font-weight: 700;
+            font-family: var(--font-serif); font-size: 1.5rem; font-weight: 500;
             display: flex; align-items: center; justify-content: center;
             margin: 0 auto 1.5rem; box-shadow: var(--shadow-gold);
             transition: var(--transition);
@@ -427,7 +454,7 @@
             width: 40px; height: 40px; border-radius: 50%;
             background: var(--color-gold); color: var(--color-dark);
             display: flex; align-items: center; justify-content: center;
-            font-weight: 700; font-size: 0.9rem; flex-shrink: 0;
+            font-weight: 600; font-size: 0.9rem; flex-shrink: 0;
         }
         .testimonial-name { font-weight: 600; font-size: 0.875rem; color: var(--color-white); }
         .testimonial-condition { font-size: 0.75rem; color: var(--color-white-60); }
@@ -449,7 +476,7 @@
         .service-card.featured .service-title { color: var(--color-white); }
         .service-desc { font-size: 0.9rem; color: var(--color-text-light); line-height: 1.7; margin-bottom: 1.5rem; }
         .service-card.featured .service-desc { color: var(--color-white-60); }
-        .service-price { font-family: var(--font-serif); font-size: 1.75rem; font-weight: 700; color: var(--color-gold); margin-bottom: 0.25rem; }
+        .service-price { font-family: var(--font-serif); font-size: 1.75rem; font-weight: 500; color: var(--color-gold); margin-bottom: 0.25rem; }
         .service-price-label { font-size: 0.75rem; color: var(--color-text-muted); }
         .service-card.featured .service-price-label { color: var(--color-white-60); }
         .service-details { margin-top: 1rem; list-style: none; }
@@ -474,7 +501,8 @@
             color: var(--color-white); transition: var(--transition); cursor: pointer;
         }
         .contact-channel:hover { border-color: var(--color-gold); background: rgba(201,169,110,0.08); transform: translateX(4px); }
-        .channel-icon { font-size: 1.5rem; flex-shrink: 0; }
+        .channel-icon { flex-shrink: 0; color: var(--color-gold); width: 22px; height: 22px; }
+        .channel-icon svg { width: 100%; height: 100%; }
         .channel-title { font-weight: 600; font-size: 0.95rem; }
         .channel-desc { font-size: 0.8rem; color: var(--color-white-60); margin-top: 0.15rem; }
         .contact-schedule { background: rgba(201,169,110,0.08); border: 1px solid rgba(201,169,110,0.2); border-radius: 20px; padding: 2rem; }
@@ -568,6 +596,73 @@
             .hero-actions { flex-direction: column; align-items: stretch; }
             .btn-primary, .btn-secondary { justify-content: center; }
         }
+
+        /* ============ EDITORIAL DE LUXO ============ */
+        .eyebrow {
+            font-size: 0.74rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
+            color: var(--color-gold); margin-bottom: 1.6rem; display: flex; align-items: center; gap: 0.85rem;
+        }
+        .eyebrow::before { content: ''; width: 34px; height: 1px; background: var(--color-gold); opacity: 0.55; }
+        .editorial-title {
+            font-family: var(--font-serif); font-weight: 300;
+            font-size: clamp(2.3rem, 4.4vw, 3.9rem); line-height: 1.08; letter-spacing: -0.01em;
+            color: var(--color-text); margin-bottom: 1.75rem;
+        }
+        .editorial-title.light { color: var(--color-white); }
+        .editorial-title em { font-style: italic; font-weight: 400; color: var(--color-gold); }
+
+        /* Sobre editorial */
+        .about-editorial { display: grid; grid-template-columns: 0.82fr 1.18fr; gap: 5rem; align-items: start; }
+        .about-photo { position: relative; }
+        .about-photo img { width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: center 15%; border-radius: 3px; box-shadow: var(--shadow-lg); }
+        .about-photo-tag {
+            position: absolute; bottom: 1.75rem; left: -0.75rem; background: var(--color-dark);
+            color: var(--color-gold); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em;
+            padding: 0.75rem 1.4rem; box-shadow: var(--shadow-md);
+        }
+        .about-text .lead { font-family: var(--font-serif); font-size: clamp(1.25rem,2vw,1.5rem); font-weight: 400; line-height: 1.5; color: var(--color-text); margin-bottom: 1.5rem; }
+        .about-text p { font-size: 1.01rem; line-height: 1.85; color: var(--color-text-light); margin-bottom: 1.2rem; }
+        .psiq-note {
+            border-left: 2px solid var(--color-gold); padding-left: 1.3rem; margin: 1.75rem 0 !important;
+            font-size: 0.98rem !important; color: var(--color-text-light) !important; font-style: italic;
+        }
+        .formation { margin-top: 2.5rem; border-top: 1px solid rgba(10,15,30,0.12); padding-top: 1.75rem; }
+        .formation-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-text-muted); margin-bottom: 1.1rem; }
+        .formation-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0.15rem 2.5rem; }
+        .formation-list li { font-size: 0.9rem; color: var(--color-text); padding: 0.45rem 0; border-bottom: 1px solid rgba(10,15,30,0.07); display: flex; gap: 0.6rem; }
+        .formation-list li::before { content: '—'; color: var(--color-gold); }
+        .book-credit { margin-top: 1.5rem; font-size: 0.88rem !important; color: var(--color-text-muted) !important; font-style: italic; }
+
+        /* Pilares editorial */
+        .section-head-editorial { max-width: 720px; margin: 0 auto 3.5rem; text-align: center; }
+        .section-head-editorial .eyebrow { justify-content: center; }
+        .pillars-editorial { max-width: 980px; margin: 0 auto; }
+        .pillar-row {
+            display: grid; grid-template-columns: 96px 1fr 250px; gap: 2.75rem; align-items: start;
+            padding: 3rem 0.5rem; border-top: 1px solid rgba(201,169,110,0.18);
+            transition: background 0.4s ease;
+        }
+        .pillar-row:last-child { border-bottom: 1px solid rgba(201,169,110,0.18); }
+        .pillar-row:hover { background: rgba(201,169,110,0.04); }
+        .pillar-num-big { font-family: var(--font-serif); font-size: 3.4rem; font-weight: 300; color: rgba(201,169,110,0.45); line-height: 0.9; }
+        .pillar-row h3 { font-family: var(--font-serif); font-size: clamp(1.6rem,2.4vw,2rem); font-weight: 600; color: var(--color-white); margin-bottom: 0.9rem; }
+        .pillar-row h3 .pi { margin-right: 0.6rem; }
+        .pillar-body p { font-size: 1rem; line-height: 1.8; color: var(--color-white-80); }
+        .pillar-body .pillar-tags { margin-top: 1.2rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .pillar-side .pillar-side-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; color: var(--color-gold); margin-bottom: 1rem; }
+        .pillar-side ul { list-style: none; }
+        .pillar-side li { font-size: 0.9rem; color: var(--color-white-80); padding: 0.55rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+        .pillar-side .pillar-cta { display: inline-block; margin-top: 1.3rem; color: var(--color-gold); font-weight: 600; font-size: 0.9rem; transition: var(--transition); }
+        .pillar-side .pillar-cta:hover { letter-spacing: 0.03em; }
+
+        @media (max-width: 900px) {
+            .about-editorial { grid-template-columns: 1fr; gap: 2.5rem; }
+            .about-photo { max-width: 360px; }
+            .about-photo-tag { left: 0; }
+            .formation-list { grid-template-columns: 1fr; }
+            .pillar-row { grid-template-columns: 1fr; gap: 1.1rem; padding: 2.25rem 0; }
+            .pillar-num-big { font-size: 2.6rem; }
+        }
     </style>
 </head><body>
     <!-- Progress Bar -->
@@ -597,10 +692,10 @@
 
     <!-- Mobile Menu -->
     <div class="nav-mobile-menu" id="mobileMenu" style="position:fixed;inset:0;background:rgba(10,15,30,0.97);z-index:999;display:none;flex-direction:column;align-items:center;justify-content:center;gap:2rem;">
-        <a href="#sobre" style="font-family:'Playfair Display',serif;font-size:2rem;color:white;" onclick="closeMobileMenu()">Sobre</a>
-        <a href="#especialidades" style="font-family:'Playfair Display',serif;font-size:2rem;color:white;" onclick="closeMobileMenu()">Tratamentos</a>
-        <a href="#depoimentos" style="font-family:'Playfair Display',serif;font-size:2rem;color:white;" onclick="closeMobileMenu()">Depoimentos</a>
-        <a href="#faq" style="font-family:'Playfair Display',serif;font-size:2rem;color:white;" onclick="closeMobileMenu()">Dúvidas</a>
+        <a href="#sobre" style="font-family:var(--font-serif);font-weight:300;font-size:2rem;color:white;" onclick="closeMobileMenu()">Sobre</a>
+        <a href="#especialidades" style="font-family:var(--font-serif);font-weight:300;font-size:2rem;color:white;" onclick="closeMobileMenu()">Tratamentos</a>
+        <a href="#depoimentos" style="font-family:var(--font-serif);font-weight:300;font-size:2rem;color:white;" onclick="closeMobileMenu()">Depoimentos</a>
+        <a href="#faq" style="font-family:var(--font-serif);font-weight:300;font-size:2rem;color:white;" onclick="closeMobileMenu()">Dúvidas</a>
         <a href="#contato" style="background:#C9A96E;color:#0A0F1E;padding:0.75rem 2rem;border-radius:50px;font-weight:600;font-size:1.25rem;" onclick="closeMobileMenu()">Agendar Consulta</a>
         <button onclick="closeMobileMenu()" style="position:absolute;top:1.5rem;right:1.5rem;background:none;border:none;color:white;font-size:2rem;cursor:pointer;">✕</button>
     </div>
@@ -622,7 +717,7 @@
             </p>
             <div class="hero-actions">
                 <a href="#contato" class="btn-primary">
-                    🗓️ Agendar Consulta
+                    Agendar Consulta
                 </a>
                 <a href="#sobre" class="btn-secondary">
                     Conheça a abordagem →
@@ -638,8 +733,8 @@
                     <span class="hero-stat-label">Anos de Experiência</span>
                 </div>
                 <div class="hero-stat">
-                    <span class="hero-stat-number" data-counter="60">60</span>
-                    <span class="hero-stat-label">Min por Consulta</span>
+                    <span class="hero-stat-number" data-counter="100">100%</span>
+                    <span class="hero-stat-label">Consulta Individualizada</span>
                 </div>
             </div>
         </div>
@@ -652,20 +747,16 @@
     <!-- SOCIAL PROOF BAR -->
     <div class="proof-bar">
         <div class="proof-item">
-            <span class="proof-icon">⭐</span>
             <div class="proof-text"><strong>5.0/5.0</strong> no Doctoralia</div>
             <div class="proof-stars">★★★★★</div>
         </div>
         <div class="proof-item">
-            <span class="proof-icon">🏆</span>
             <div class="proof-text"><strong>Certificado de Excelência</strong> Doctoralia 2022 e 2023</div>
         </div>
         <div class="proof-item">
-            <span class="proof-icon">🩺</span>
             <div class="proof-text"><strong>CRM-MA 10289</strong> · RQE em Nutrologia 6806</div>
         </div>
         <div class="proof-item">
-            <span class="proof-icon">🌐</span>
             <div class="proof-text">Teleconsulta para <strong>todo o Brasil</strong></div>
         </div>
     </div>
@@ -679,159 +770,144 @@
                 <p class="section-subtitle animate-on-scroll" style="margin:0 auto;">Muita gente chega ao consultório depois de tentar de tudo. Quando o corpo não responde ao esforço, quase sempre existe uma causa que os exames de rotina não mostram.</p>
             </div>
             <div class="signs-grid">
-                <div class="sign-item animate-on-scroll"><span class="sign-icon">🔋</span><p>Fadiga que não passa, mesmo dormindo bem</p></div>
-                <div class="sign-item animate-on-scroll animate-delay-1"><span class="sign-icon">🌫️</span><p>Névoa mental que atrapalha o raciocínio</p></div>
-                <div class="sign-item animate-on-scroll animate-delay-2"><span class="sign-icon">⚖️</span><p>Peso que sempre volta, não importa a dieta</p></div>
-                <div class="sign-item animate-on-scroll"><span class="sign-icon">🍫</span><p>Compulsão que a disciplina sozinha não resolve</p></div>
-                <div class="sign-item animate-on-scroll animate-delay-1"><span class="sign-icon">😰</span><p>Ansiedade que não responde só a medicamento</p></div>
-                <div class="sign-item animate-on-scroll animate-delay-2"><span class="sign-icon">💪</span><p>Queda de libido, energia ou massa muscular</p></div>
+                <div class="sign-item animate-on-scroll"><p>Fadiga que não passa, mesmo dormindo bem</p></div>
+                <div class="sign-item animate-on-scroll animate-delay-1"><p>Névoa mental que atrapalha o raciocínio</p></div>
+                <div class="sign-item animate-on-scroll animate-delay-2"><p>Peso que sempre volta, não importa a dieta</p></div>
+                <div class="sign-item animate-on-scroll"><p>Compulsão que a disciplina sozinha não resolve</p></div>
+                <div class="sign-item animate-on-scroll animate-delay-1"><p>Ansiedade que não responde só a medicamento</p></div>
+                <div class="sign-item animate-on-scroll animate-delay-2"><p>Queda de libido, energia ou massa muscular</p></div>
             </div>
             <div style="text-align:center;margin-top:3rem;" class="animate-on-scroll">
                 <p style="font-family:var(--font-serif);font-size:clamp(1.15rem,2vw,1.4rem);font-style:italic;color:var(--color-text);max-width:640px;margin:0 auto 1.75rem;line-height:1.5;">Se você se reconheceu em alguma dessas situações, existe uma investigação que pode mudar o seu tratamento.</p>
-                <a href="https://wa.me/5599991310226?text=Ol%C3%A1!%20Quero%20agendar%20uma%20consulta%20com%20o%20Dr.%20Hiago." target="_blank" rel="noopener" class="btn-primary" style="text-decoration:none;">🗓️ Quero investigar a causa</a>
+                <a href="https://wa.me/5599991310226?text=Ol%C3%A1!%20Quero%20agendar%20uma%20consulta%20com%20o%20Dr.%20Hiago." target="_blank" rel="noopener" class="btn-primary" style="text-decoration:none;">Quero investigar a causa</a>
             </div>
         </div>
     </section>
-    <!-- ABOUT SECTION -->
+    <!-- ABOUT SECTION — editorial -->
     <section class="section section-light" id="sobre" aria-labelledby="about-title">
         <div class="container">
-            <div class="about-grid">
-                <div class="about-image-wrap animate-on-scroll">
-                    <img src="about-dr-hiago.jpg" alt="Dr. Hiago Amorim, Médico Nutrólogo (RQE 6806) em São Luís-MA" class="about-image" width="480" height="640" loading="eager">
-                    <div class="about-image-badge">
-                        <strong>5.0</strong>
-                        <span>★★★★★<br>292 avaliações</span>
-                    </div>
+            <div class="about-editorial">
+                <div class="about-photo animate-on-scroll">
+                    <img src="about-dr-hiago.jpg" alt="Dr. Hiago Amorim, Médico Nutrólogo (RQE 6806) em São Luís-MA" width="480" height="640" loading="eager">
+                    <div class="about-photo-tag">5.0 ★★★★★ · 292 avaliações</div>
                 </div>
-                <div class="about-content">
-                    <p class="section-label">Sobre o Dr. Hiago</p>
-                    <h2 class="section-title dark animate-on-scroll" id="about-title">A medicina que você<br><em style="font-style:italic;color:var(--color-gold)">merecia encontrar</em></h2>
-                    <div class="divider"></div>
-                    <p class="about-bio animate-on-scroll animate-delay-1">
-                        Sou médico nutrólogo (CRM-MA 10289 · RQE 6806) e trabalho três frentes que se cruzam
-                        na causa das queixas mais comuns: emagrecimento, saúde hormonal (masculina e feminina)
-                        e a relação com a comida — quando ela vem por TDAH, ansiedade, compulsão ou sono ruim.
+                <div class="about-text">
+                    <p class="eyebrow">Sobre o Dr. Hiago</p>
+                    <h2 class="editorial-title animate-on-scroll" id="about-title">A medicina que você<br><em>merecia encontrar</em></h2>
+                    <p class="lead animate-on-scroll animate-delay-1">
+                        Sou médico nutrólogo e trabalho três frentes que se cruzam na causa das queixas mais
+                        comuns: emagrecimento, saúde hormonal e a relação com a comida.
                     </p>
-                    <p class="about-bio animate-on-scroll animate-delay-2">
+                    <p class="animate-on-scroll animate-delay-2">
                         Antes de qualquer prescrição, investigo o que os exames de rotina não mostram: marcadores
                         inflamatórios, perfil metabólico, deficiências nutricionais, eixo hormonal e composição
                         corporal. Trato a causa, não só o sintoma — com abordagem baseada em evidências,
-                        individualizada e humanizada. Atendo em São Luís-MA e por telemedicina para todo o Brasil.
-                        Adultos e adolescentes a partir de 12 anos.
+                        individualizada e humanizada.
                     </p>
-                    <div class="about-highlights animate-on-scroll animate-delay-2">
-                        <div class="highlight-card">
-                            <div class="highlight-icon">🔬</div>
-                            <div class="highlight-title">Abordagem Integrativa</div>
-                            <div class="highlight-desc">Une nutrologia, saúde mental e medicina do estilo de vida em um cuidado completo</div>
-                        </div>
-                        <div class="highlight-card">
-                            <div class="highlight-icon">📋</div>
-                            <div class="highlight-title">Baseado em Evidências</div>
-                            <div class="highlight-desc">Condutas científicas e protocolos atualizados, sem modismos ou promessas vazias</div>
-                        </div>
-                        <div class="highlight-card">
-                            <div class="highlight-icon">⏱️</div>
-                            <div class="highlight-title">Consulta de 60–90 min</div>
-                            <div class="highlight-desc">Tempo suficiente para investigar, entender e construir um plano real</div>
-                        </div>
-                        <div class="highlight-card">
-                            <div class="highlight-icon">🤝</div>
-                            <div class="highlight-title">Acompanhamento Contínuo</div>
-                            <div class="highlight-desc">Retornos periódicos para ajuste de conduta e suporte à sua evolução</div>
-                        </div>
-                    </div>
-                    <div class="credentials-list animate-on-scroll animate-delay-3">
-                        <span class="credential-tag">CRM-MA 10289</span>
-                        <span class="credential-tag">RQE 6806</span>
-                        <span class="credential-tag">ABRAN 2021</span>
-                        <span class="credential-tag">ACLM 2023</span>
-                        <span class="credential-tag">HCFMUSP 2022</span>
-                        <span class="credential-tag">IBNF 2022</span>
-                        <span class="credential-tag">PUC-PR Transt. Alimentares 2025</span>
-                        <span class="credential-tag">A.C. Camargo Cancer Center</span>
-                        <span class="credential-tag">IAMSPE/HSPE</span>
-                    </div>
-                    <p style="margin-top:1.5rem;font-size:0.85rem;color:var(--color-text-muted);">
-                        📖 Autor do capítulo <em>"Disbiose no paciente internado"</em> — Tratado de Nutrologia Hospitalar, 2024
+                    <p class="animate-on-scroll animate-delay-2">
+                        Atendo em São Luís-MA e por telemedicina para todo o Brasil. Adultos e adolescentes
+                        a partir de 12 anos.
                     </p>
+                    <p class="psiq-note animate-on-scroll animate-delay-2">
+                        A pós-graduação em Psiquiatria aprofunda meu olhar sobre a relação entre nutrição,
+                        cérebro e comportamento — sempre dentro da minha atuação como médico nutrólogo.
+                    </p>
+                    <div class="formation animate-on-scroll animate-delay-3">
+                        <p class="formation-label">Formação & credenciais</p>
+                        <ul class="formation-list">
+                            <li>CRM-MA 10289 · RQE 6806</li>
+                            <li>Pós-graduação em Psiquiatria — Sanar/Cetrus</li>
+                            <li>ABRAN — Assoc. Bras. de Nutrologia, 2021</li>
+                            <li>ACLM — American College of Lifestyle Medicine, 2023</li>
+                            <li>HCFMUSP, 2022</li>
+                            <li>IBNF, 2022</li>
+                            <li>PUC-PR — Transtornos Alimentares, 2025</li>
+                            <li>A.C. Camargo Cancer Center</li>
+                            <li>IAMSPE/HSPE</li>
+                        </ul>
+                        <p class="book-credit">
+                            Autor do capítulo <em>"Disbiose no paciente internado"</em> — Tratado de Nutrologia Hospitalar, 2024
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- SPECIALTIES SECTION -->
+    <!-- SPECIALTIES SECTION — editorial em faixas -->
     <section class="section section-dark" id="especialidades" aria-labelledby="spec-title">
         <div class="container">
-            <div style="text-align:center;max-width:720px;margin:0 auto;">
-                <p class="section-label">Como eu trato</p>
-                <h2 class="section-title light animate-on-scroll" id="spec-title">Três frentes,<br><em style="font-style:italic;color:var(--color-gold)">uma mesma causa</em></h2>
-                <div class="divider" style="margin:1.25rem auto;"></div>
+            <div class="section-head-editorial">
+                <p class="eyebrow">Como eu trato</p>
+                <h2 class="editorial-title light animate-on-scroll" id="spec-title">Três frentes,<br><em>uma mesma causa</em></h2>
                 <p class="section-subtitle light animate-on-scroll" style="margin:0 auto;">Emagrecimento, saúde hormonal e a relação com a comida quase nunca são problemas separados. Investigo e trato os três de forma integrada — na causa, não só no sintoma.</p>
             </div>
-            <div class="pillars-grid">
-                <!-- Pilar 1 -->
-                <div class="pillar-card animate-on-scroll">
-                    <div class="pillar-head">
-                        <span class="pillar-icon">🔥</span>
-                        <span class="pillar-number">01</span>
+            <div class="pillars-editorial">
+                <div class="pillar-row animate-on-scroll">
+                    <div class="pillar-num-big">01</div>
+                    <div class="pillar-body">
+                        <h3>Emagrecimento</h3>
+                        <p>Para quem já tentou todas as dietas e o peso sempre volta. Investigo a causa — resistência à insulina, inflamação, hormônios, compulsão — e trato o que trava o resultado, não só a balança.</p>
+                        <div class="pillar-tags">
+                            <span class="condition-tag">Obesidade</span>
+                            <span class="condition-tag">Resistência insulínica</span>
+                            <span class="condition-tag">Síndrome metabólica</span>
+                        </div>
                     </div>
-                    <h3 class="pillar-title">Emagrecimento</h3>
-                    <p class="pillar-desc">Para quem já tentou todas as dietas e o peso sempre volta. Investigo a causa — resistência à insulina, inflamação, hormônios, compulsão — e trato o que trava o resultado, não só a balança.</p>
-                    <ul class="pillar-services">
-                        <li>Protocolo de emagrecimento</li>
-                        <li>Composição corporal e recomposição</li>
-                        <li>Otimização metabólica e perda de gordura</li>
-                        <li>Laudo para cirurgia bariátrica</li>
-                    </ul>
-                    <div class="pillar-tags">
-                        <span class="condition-tag">Obesidade</span>
-                        <span class="condition-tag">Resistência insulínica</span>
-                        <span class="condition-tag">Síndrome metabólica</span>
+                    <div class="pillar-side">
+                        <p class="pillar-side-label">Inclui</p>
+                        <ul>
+                            <li>Protocolo de emagrecimento</li>
+                            <li>Composição corporal e recomposição</li>
+                            <li>Otimização metabólica</li>
+                            <li>Laudo para cirurgia bariátrica</li>
+                        </ul>
+                        <a href="#contato" class="pillar-cta">Agendar avaliação →</a>
                     </div>
-                    <a href="#contato" class="pillar-cta">Agendar avaliação →</a>
                 </div>
-                <!-- Pilar 2 -->
-                <div class="pillar-card animate-on-scroll animate-delay-1">
-                    <div class="pillar-head">
-                        <span class="pillar-icon">💪</span>
-                        <span class="pillar-number">02</span>
+                <div class="pillar-row animate-on-scroll animate-delay-1">
+                    <div class="pillar-num-big">02</div>
+                    <div class="pillar-body">
+                        <h3>Saúde Hormonal</h3>
+                        <p>Cansaço que não passa, libido baixa, oscilações de humor, perda de massa. Avalio testosterona, tireoide e o eixo hormonal masculino e feminino, e trato a deficiência na causa — sempre com base em exames.</p>
+                        <div class="pillar-tags">
+                            <span class="condition-tag">Testosterona</span>
+                            <span class="condition-tag">Menopausa</span>
+                            <span class="condition-tag">Tireoide</span>
+                        </div>
                     </div>
-                    <h3 class="pillar-title">Saúde Hormonal</h3>
-                    <p class="pillar-desc">Cansaço que não passa, libido baixa, oscilações de humor, perda de massa. Avalio testosterona, tireoide e o eixo hormonal masculino e feminino, e trato a deficiência na causa — sempre com base em exames.</p>
-                    <ul class="pillar-services">
-                        <li>Regulação hormonal masculina</li>
-                        <li>Regulação hormonal feminina</li>
-                        <li>Climatério e menopausa</li>
-                        <li>Longevidade e medicina do estilo de vida</li>
-                    </ul>
-                    <div class="pillar-tags">
-                        <span class="condition-tag">Testosterona</span>
-                        <span class="condition-tag">Menopausa</span>
-                        <span class="condition-tag">Tireoide</span>
+                    <div class="pillar-side">
+                        <p class="pillar-side-label">Inclui</p>
+                        <ul>
+                            <li>Regulação hormonal masculina</li>
+                            <li>Regulação hormonal feminina</li>
+                            <li>Climatério e menopausa</li>
+                            <li>Longevidade</li>
+                        </ul>
+                        <a href="#contato" class="pillar-cta">Agendar avaliação →</a>
                     </div>
-                    <a href="#contato" class="pillar-cta">Agendar avaliação →</a>
                 </div>
-                <!-- Pilar 3 -->
-                <div class="pillar-card animate-on-scroll animate-delay-2">
-                    <div class="pillar-head">
-                        <span class="pillar-icon">🧠</span>
-                        <span class="pillar-number">03</span>
+                <div class="pillar-row animate-on-scroll animate-delay-2">
+                    <div class="pillar-num-big">03</div>
+                    <div class="pillar-body">
+                        <h3>Mente e Comer Emocional</h3>
+                        <p>Ansiedade que não responde só a remédio, névoa mental, compulsão que a disciplina não resolve, sono ruim. Conecto nutrição, intestino e cérebro para tratar a causa por trás do sintoma.</p>
+                        <div class="pillar-tags">
+                            <span class="condition-tag">TDAH</span>
+                            <span class="condition-tag">Ansiedade</span>
+                            <span class="condition-tag">Compulsão</span>
+                            <span class="condition-tag">Sono</span>
+                        </div>
                     </div>
-                    <h3 class="pillar-title">Mente e Comer Emocional</h3>
-                    <p class="pillar-desc">Ansiedade que não responde só a remédio, névoa mental, compulsão que a disciplina não resolve, sono ruim. Conecto nutrição, intestino e cérebro para tratar a causa por trás do sintoma.</p>
-                    <ul class="pillar-services">
-                        <li>Abordagem nutrológica em TDAH</li>
-                        <li>Abordagem nutrológica em ansiedade e depressão</li>
-                        <li>Abordagem nutrológica em compulsão alimentar</li>
-                        <li>Sono, insônia e performance cognitiva</li>
-                    </ul>
-                    <div class="pillar-tags">
-                        <span class="condition-tag">TDAH</span>
-                        <span class="condition-tag">Ansiedade</span>
-                        <span class="condition-tag">Compulsão</span>
-                        <span class="condition-tag">Sono</span>
+                    <div class="pillar-side">
+                        <p class="pillar-side-label">Inclui</p>
+                        <ul>
+                            <li>Abordagem em TDAH</li>
+                            <li>Abordagem em ansiedade e depressão</li>
+                            <li>Abordagem em compulsão alimentar</li>
+                            <li>Sono e performance cognitiva</li>
+                        </ul>
+                        <a href="#contato" class="pillar-cta">Agendar avaliação →</a>
                     </div>
-                    <a href="#contato" class="pillar-cta">Agendar avaliação →</a>
                 </div>
             </div>
         </div>
@@ -850,25 +926,25 @@
                     <div class="step-number">01</div>
                     <h3 class="step-title">Agendamento</h3>
                     <p class="step-desc">Escolha a modalidade (presencial ou teleconsulta) e agende pelo canal de sua preferência: WhatsApp ou Doctoralia.</p>
-                    <div class="step-time">⚡ Rápido e sem burocracia</div>
+                    <div class="step-time">Rápido e sem burocracia</div>
                 </div>
                 <div class="process-step animate-on-scroll animate-delay-1">
                     <div class="step-number">02</div>
                     <h3 class="step-title">Primeira Consulta</h3>
-                    <p class="step-desc">60 a 90 minutos de investigação profunda: histórico completo, exames, hábitos, saúde mental e objetivos. Você sai com um plano claro.</p>
-                    <div class="step-time">⏱️ 60–90 min · Plano completo</div>
+                    <p class="step-desc">Uma consulta sem pressa e minuciosa: histórico completo, exames, hábitos, saúde mental e objetivos — uma conversa de verdade entre médico e paciente. Você sai com um plano claro.</p>
+                    <div class="step-time">Sem pressa · Plano completo</div>
                 </div>
                 <div class="process-step animate-on-scroll animate-delay-2">
                     <div class="step-number">03</div>
                     <h3 class="step-title">Plano Individualizado</h3>
                     <p class="step-desc">Condutas personalizadas: prescrição médica, orientação nutricional, ajuste de estilo de vida e suplementação baseada em evidências.</p>
-                    <div class="step-time">📋 Protocolo 100% individualizado</div>
+                    <div class="step-time">Protocolo 100% individualizado</div>
                 </div>
                 <div class="process-step animate-on-scroll animate-delay-3">
                     <div class="step-number">04</div>
                     <h3 class="step-title">Acompanhamento</h3>
                     <p class="step-desc">Retornos periódicos para reavaliação, ajuste de conduta e monitoramento de resultados. Transformação sustentável e duradoura.</p>
-                    <div class="step-time">📈 Resultados mensuráveis</div>
+                    <div class="step-time">Resultados mensuráveis</div>
                 </div>
             </div>
         </div>
@@ -885,8 +961,8 @@
             
             <!-- Featured testimonial -->
             <div style="background:rgba(201,169,110,0.08);border:1px solid rgba(201,169,110,0.25);border-radius:20px;padding:2.5rem;margin:3rem 0 2rem;max-width:800px;margin-left:auto;margin-right:auto;" class="animate-on-scroll">
-                <div style="font-size:2.5rem;color:var(--color-gold);margin-bottom:1rem;font-family:'Playfair Display',serif;">"</div>
-                <p style="font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--color-white);line-height:1.8;font-style:italic;margin-bottom:1.5rem;">
+                <div style="font-size:2.5rem;color:var(--color-gold);margin-bottom:1rem;font-family:var(--font-serif);font-weight:300;">"</div>
+                <p style="font-family:var(--font-serif);font-weight:400;font-size:1.2rem;color:var(--color-white);line-height:1.8;font-style:italic;margin-bottom:1.5rem;">
                     O tratamento surtiu efeito de verdade, não é só orientação vazia, é análise, prescrição e orientação sensata e de enorme conhecimento.
                 </p>
                 <div style="display:flex;align-items:center;gap:1rem;">
@@ -984,10 +1060,9 @@
             </div>
             <div class="services-grid">
                 <div class="service-card animate-on-scroll">
-                    <div class="service-icon">🏥</div>
                     <h3 class="service-title">Consulta Presencial</h3>
                     <p class="service-desc">Atendimento presencial em São Luís-MA (Instituto Alberto Beretta, Calhau). Para quem prefere o contato direto e exames físicos completos.</p>
-                    <div class="service-price">60 minutos</div>
+                    <div class="service-price">Sem pressa</div>
                     <div class="service-price-label">Consulta individual · Particular</div>
                     <ul class="service-details">
                         <li>São Luís-MA: Rua Aramitas, Calhau</li>
@@ -996,11 +1071,10 @@
                     </ul>
                 </div>
                 <div class="service-card featured animate-on-scroll animate-delay-1">
-                    <div class="urgency-badge">🌐 Atendimento Nacional</div>
-                    <div class="service-icon">💻</div>
+                    <div class="urgency-badge">Atendimento Nacional</div>
                     <h3 class="service-title">Teleconsulta Online</h3>
                     <p class="service-desc">Atendimento por videochamada para todo o Brasil. Mesma qualidade e profundidade da consulta presencial, sem sair de casa. Regulamentada pelo CFM.</p>
-                    <div class="service-price">60 minutos</div>
+                    <div class="service-price">Sem pressa</div>
                     <div class="service-price-label">Teleconsulta · Todo o Brasil</div>
                     <ul class="service-details" style="border-top:1px solid rgba(255,255,255,0.08);margin-top:0.75rem;">
                         <li>Regulamentada pelo CFM</li>
@@ -1010,7 +1084,6 @@
                     </ul>
                 </div>
                 <div class="service-card animate-on-scroll animate-delay-2">
-                    <div class="service-icon">🔁</div>
                     <h3 class="service-title">Consulta de Retorno</h3>
                     <p class="service-desc">Acompanhamento periódico para reavaliação de resultados, ajuste de conduta e evolução do plano terapêutico. Essencial para resultados duradouros.</p>
                     <div class="service-price" style="color:var(--color-text);font-size:1.3rem;">Acompanhamento</div>
@@ -1024,7 +1097,6 @@
                 </div>
             </div>
             <div style="margin-top:2rem;padding:1.5rem;background:rgba(201,169,110,0.08);border:1px solid rgba(201,169,110,0.2);border-radius:14px;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;" class="animate-on-scroll">
-                <div style="font-size:1.5rem;">💳</div>
                 <div>
                     <strong style="color:var(--color-text);font-size:0.95rem;">Formas de pagamento:</strong>
                     <span style="color:var(--color-text-light);font-size:0.875rem;"> PIX · Cartão de Crédito · Cartão de Débito · Dinheiro · Boleto</span>
@@ -1044,11 +1116,11 @@
             <div class="faq-list">
                 <details class="faq-item animate-on-scroll">
                     <summary>Como funciona a teleconsulta?</summary>
-                    <p>Por videochamada, com link seguro, e a mesma profundidade da consulta presencial — 60 minutos de investigação. É regulamentada pelo CFM. Receita e pedidos de exame são enviados de forma digital quando necessário.</p>
+                    <p>Por videochamada, com link seguro, e a mesma profundidade da consulta presencial — sem pressa, com uma investigação completa. É regulamentada pelo CFM. Receita e pedidos de exame são enviados de forma digital quando necessário.</p>
                 </details>
                 <details class="faq-item animate-on-scroll">
                     <summary>Qual é o valor da consulta?</summary>
-                    <p>Os valores da consulta e do retorno são informados no momento do agendamento, pelo WhatsApp. A consulta em nutrologia tem 60 minutos — com anamnese completa, avaliação e plano individualizado — e o retorno de acompanhamento é válido por até 90 dias após a primeira consulta.</p>
+                    <p>Os valores da consulta e do retorno são informados no momento do agendamento, pelo WhatsApp. A consulta em nutrologia é sem pressa e minuciosa — com anamnese completa, avaliação e plano individualizado — e o retorno de acompanhamento é válido por até 90 dias após a primeira consulta.</p>
                 </details>
                 <details class="faq-item animate-on-scroll">
                     <summary>Atende por convênio?</summary>
@@ -1069,7 +1141,7 @@
             </div>
             <div style="text-align:center;margin-top:2.5rem;" class="animate-on-scroll">
                 <p style="color:var(--color-text-light);margin-bottom:1.25rem;font-size:0.95rem;">Ficou com outra dúvida? Fale comigo direto no WhatsApp.</p>
-                <a href="https://wa.me/5599991310226?text=Ol%C3%A1!%20Tenho%20uma%20d%C3%BAvida%20sobre%20a%20consulta." target="_blank" rel="noopener" class="btn-primary" style="text-decoration:none;">💬 Tirar dúvida no WhatsApp</a>
+                <a href="https://wa.me/5599991310226?text=Ol%C3%A1!%20Tenho%20uma%20d%C3%BAvida%20sobre%20a%20consulta." target="_blank" rel="noopener" class="btn-primary" style="text-decoration:none;">Tirar dúvida no WhatsApp</a>
             </div>
         </div>
     </section>
@@ -1084,28 +1156,28 @@
                     <p class="section-subtitle light animate-on-scroll">Escolha o canal de sua preferência. Resposta rápida e sem burocracia. Vagas disponíveis para os próximos dias.</p>
                     <div class="contact-channels animate-on-scroll">
                         <a href="https://wa.me/5599991310226?text=Ol%C3%A1!%20Quero%20agendar%20uma%20consulta%20com%20o%20Dr.%20Hiago." target="_blank" rel="noopener" class="contact-channel">
-                            <div class="channel-icon">💬</div>
+                            <div class="channel-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
                             <div>
                                 <div class="channel-title">WhatsApp — (99) 99131-0226</div>
                                 <div class="channel-desc">Resposta rápida · Agende sua consulta agora</div>
                             </div>
                         </a>
                         <a href="https://www.doctoralia.com.br/hiago-amorim/nutrologo-especialista-em-medicina-preventiva-generalista/coroata" target="_blank" rel="noopener" class="contact-channel">
-                            <div class="channel-icon">🗓️</div>
+                            <div class="channel-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
                             <div>
                                 <div class="channel-title">Doctoralia — Agendamento Online</div>
                                 <div class="channel-desc">Escolha data e horário · Confirmação imediata</div>
                             </div>
                         </a>
                         <a href="tel:+5511971293627" class="contact-channel">
-                            <div class="channel-icon">📞</div>
+                            <div class="channel-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7a2 2 0 0 1 1.72 2.03z"/></svg></div>
                             <div>
                                 <div class="channel-title">Telefone — (11) 97129-3627</div>
                                 <div class="channel-desc">Seg a Sex · 14h00 às 18h00</div>
                             </div>
                         </a>
                         <a href="tel:+559891981919" class="contact-channel">
-                            <div class="channel-icon">🏥</div>
+                            <div class="channel-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 6.5-9 12.5-9 12.5S3 16.5 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
                             <div>
                                 <div class="channel-title">Instituto Alberto Beretta · (98) 99198-1919</div>
                                 <div class="channel-desc">São Luís-MA · Rua Aramitas, Calhau</div>
@@ -1115,7 +1187,7 @@
                 </div>
                 <div class="animate-on-scroll animate-delay-2">
                     <div class="contact-schedule">
-                        <h3 class="schedule-title">📅 Horários de Atendimento</h3>
+                        <h3 class="schedule-title">Horários de Atendimento</h3>
                         <div class="schedule-grid">
                             <div class="schedule-item">
                                 <div class="schedule-day">Segunda</div>
@@ -1143,15 +1215,15 @@
                             </div>
                         </div>
                         <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid rgba(201,169,110,0.2);">
-                            <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.75rem;">
-                                <span style="color:var(--color-gold);">📍</span>
+                            <div style="display:flex;align-items:center;gap:0.65rem;margin-bottom:0.75rem;">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A96E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M21 10c0 6.5-9 12.5-9 12.5S3 16.5 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
                                 <div>
                                     <div style="font-weight:600;color:var(--color-white);font-size:0.9rem;">São Luís-MA</div>
                                     <div style="font-size:0.8rem;color:var(--color-white-60);">Rua Aramitas, Calhau · CEP 65071-480</div>
                                 </div>
                             </div>
-                            <div style="display:flex;align-items:center;gap:0.5rem;">
-                                <span style="color:var(--color-gold);">📍</span>
+                            <div style="display:flex;align-items:center;gap:0.65rem;">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A96E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
                                 <div>
                                     <div style="font-weight:600;color:var(--color-white);font-size:0.9rem;">Telemedicina</div>
                                     <div style="font-size:0.8rem;color:var(--color-white-60);">Videochamada para todo o Brasil</div>
@@ -1160,7 +1232,7 @@
                         </div>
                         <div style="margin-top:1.5rem;">
                             <a href="https://wa.me/5599991310226?text=Ol%C3%A1!%20Quero%20agendar%20uma%20consulta%20com%20o%20Dr.%20Hiago." target="_blank" rel="noopener" class="btn-primary" style="width:100%;justify-content:center;display:flex;text-decoration:none;">
-                                💬 Agendar pelo WhatsApp
+                                Agendar pelo WhatsApp
                             </a>
                         </div>
                     </div>
