@@ -37,56 +37,121 @@
 
     <!-- Schema Markup JSON-LD -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Physician",
-      "@id": "https://drhiagoamorim.com.br/#physician",
-      "name": "Dr. Hiago Amorim",
-      "url": "https://drhiagoamorim.com.br",
-      "image": "https://drhiagoamorim.com.br/hero-dr-hiago.jpg",
-      "description": "Médico Nutrólogo (RQE 6806) — Nutrologia e Medicina do Estilo de Vida. Emagrecimento, saúde hormonal e comer emocional, tratando a causa. CRM-MA 10289.",
-      "medicalSpecialty": ["Nutrologia", "Medicina do Estilo de Vida", "Medicina Integrativa"],
-      "identifier": [
-        {"@type": "PropertyValue", "name": "CRM-MA", "value": "10289"},
-        {"@type": "PropertyValue", "name": "RQE", "value": "6806"}
-      ],
-      "telephone": "+55-99-99131-0226",
-      "email": "contato@drhiagoamorim.com.br",
-      "address": [
-        {
-          "@type": "PostalAddress",
-          "streetAddress": "Rua Aramitas, Calhau",
-          "addressLocality": "São Luís",
-          "addressRegion": "MA",
-          "postalCode": "65071-480",
-          "addressCountry": "BR"
-        }
-      ],
-      "availableService": [
-        {"@type": "MedicalTherapy", "name": "Consulta em Nutrologia"},
-        {"@type": "MedicalTherapy", "name": "Emagrecimento e metabolismo"},
-        {"@type": "MedicalTherapy", "name": "Saúde hormonal e reposição hormonal"},
-        {"@type": "MedicalTherapy", "name": "Comer emocional e compulsão alimentar"},
-        {"@type": "MedicalTherapy", "name": "Teleconsulta"},
-        {"@type": "MedicalTherapy", "name": "Medicina do Estilo de Vida"}
-      ],
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5.0",
-        "reviewCount": "292",
-        "bestRating": "5",
-        "worstRating": "1"
-      },
-      "sameAs": [
-        "https://www.doctoralia.com.br/hiago-amorim/nutrologo-especialista-em-medicina-preventiva-generalista/coroata",
-        "https://www.instagram.com/dr.hiagoamorim",
-        "https://www.linkedin.com/in/hiagoamorim"
-      ],
-      "memberOf": [
-        {"@type": "MedicalOrganization", "name": "ABRAN – Associação Brasileira de Nutrologia"},
-        {"@type": "MedicalOrganization", "name": "American College of Lifestyle Medicine (ACLM)"}
-      ]
-    }
+      {
+        "@context": "https://schema.org",
+        "@type": "Physician",
+        "@id": "https://drhiagoamorim.com.br/#physician",
+        "name": "Dr. Hiago Amorim",
+        "url": "https://drhiagoamorim.com.br",
+        "image": "https://drhiagoamorim.com.br/hero-dr-hiago.jpg",
+        "description": "Médico Nutrólogo (RQE 6806) — Nutrologia e Medicina do Estilo de Vida. Emagrecimento, saúde hormonal e comer emocional, tratando a causa. CRM-MA 10289.",
+        "medicalSpecialty": [
+          "Nutrologia",
+          "Medicina do Estilo de Vida",
+          "Medicina Integrativa"
+        ],
+        "identifier": [
+          {
+            "@type": "PropertyValue",
+            "name": "CRM-MA",
+            "value": "10289"
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "RQE",
+            "value": "6806"
+          }
+        ],
+        "telephone": "+55-99-99131-0226",
+        "email": "contato@drhiagoamorim.com.br",
+        "address": [
+          {
+            "@type": "PostalAddress",
+            "streetAddress": "Rua Aramitas, Calhau",
+            "addressLocality": "São Luís",
+            "addressRegion": "MA",
+            "postalCode": "65071-480",
+            "addressCountry": "BR"
+          },
+          {
+            "@type": "PostalAddress",
+            "name": "Clínica IntegraDiagnóstico",
+            "streetAddress": "Avenida Magalhães de Almeida, 736A, Centro",
+            "addressLocality": "Coroatá",
+            "addressRegion": "MA",
+            "addressCountry": "BR"
+          }
+        ],
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": -2.4876151,
+          "longitude": -44.2663385
+        },
+        "hasMap": "https://www.google.com/maps?cid=4819824483671495789",
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday"
+            ],
+            "opens": "14:00",
+            "closes": "18:00"
+          }
+        ],
+        "availableService": [
+          {
+            "@type": "MedicalTherapy",
+            "name": "Consulta em Nutrologia"
+          },
+          {
+            "@type": "MedicalTherapy",
+            "name": "Emagrecimento e metabolismo"
+          },
+          {
+            "@type": "MedicalTherapy",
+            "name": "Saúde hormonal e reposição hormonal"
+          },
+          {
+            "@type": "MedicalTherapy",
+            "name": "Comer emocional e compulsão alimentar"
+          },
+          {
+            "@type": "MedicalTherapy",
+            "name": "Teleconsulta"
+          },
+          {
+            "@type": "MedicalTherapy",
+            "name": "Medicina do Estilo de Vida"
+          }
+        ],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5.0",
+          "reviewCount": "292",
+          "bestRating": "5",
+          "worstRating": "1"
+        },
+        "sameAs": [
+          "https://www.google.com/maps?cid=4819824483671495789",
+          "https://www.doctoralia.com.br/hiago-amorim/nutrologo-especialista-em-medicina-preventiva-generalista/coroata",
+          "https://www.instagram.com/dr.hiagoamorim",
+          "https://www.linkedin.com/in/hiagoamorim"
+        ],
+        "memberOf": [
+          {
+            "@type": "MedicalOrganization",
+            "name": "ABRAN – Associação Brasileira de Nutrologia"
+          },
+          {
+            "@type": "MedicalOrganization",
+            "name": "American College of Lifestyle Medicine (ACLM)"
+          }
+        ]
+      }
     </script>
     <script type="application/ld+json">
     {
@@ -888,7 +953,7 @@
             </div>
             <div class="map-wrap animate-on-scroll">
                 <iframe
-                    src="https://www.google.com/maps?q=Rua%20Aramitas%2C%20Calhau%2C%20S%C3%A3o%20Lu%C3%ADs%20-%20MA%2C%2065071-480&output=embed"
+                    src="https://www.google.com/maps?cid=4819824483671495789&output=embed"
                     title="Mapa — consultório na Rua Aramitas, Calhau, São Luís-MA"
                     loading="lazy" referrerpolicy="no-referrer-when-downgrade"
                     allowfullscreen></iframe>
