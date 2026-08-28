@@ -1,3 +1,22 @@
+# Google-Extended LIBERADO deliberadamente em 28/08/2026.
+#
+# A robots.txt gerenciada da Cloudflare e injetada ANTES deste arquivo e traz
+# "User-agent: Google-Extended / Disallow: /". O Google combina todos os grupos
+# do mesmo user-agent num so e, em conflito de mesma especificidade, aplica a
+# regra MENOS restritiva -- entao o Allow abaixo prevalece sobre aquele Disallow.
+#
+# Por que liberar: o FAQ desta home existe para ser lido pela IA do Google, que
+# passou a responder sobre o consultorio depois que o campo de Perguntas e
+# Respostas do perfil foi desativado em 03/11/2025. Bloquear nao protege nada:
+# "Google-Extended does not impact a site's inclusion in Google Search nor is it
+# used as a ranking signal in Google Search."
+#
+# Este arquivo NAO libera GPTBot, ClaudeBot, CCBot, Applebot-Extended, Bytespider,
+# meta-externalagent nem Amazonbot -- esses tem user-agent proprio e a Cloudflare
+# consegue barrar na borda. Para eles, o ajuste e no painel (AI Crawl Control).
+User-agent: Google-Extended
+Allow: /
+
 User-agent: *
 Allow: /
 
