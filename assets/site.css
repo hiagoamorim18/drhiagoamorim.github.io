@@ -1080,3 +1080,40 @@ a.about-photo-tag:hover { filter: brightness(1.15); }
     }
     .faq-item, .testimonial-card { background: var(--color-white); }
 }
+
+
+/* === ESCALA + FAIXA DE IMAGEM — 30/08/2026 =========================
+   O abismo com a referencia nao era cor, era TAMANHO. Titulo editorial
+   ia ate 62px; deles passa de 80. Aqui sobe para 83px em tela grande. */
+.editorial-title { font-size: clamp(2.6rem, 5.6vw, 5.2rem); line-height: 1.03; }
+.section-title   { font-size: clamp(2.2rem, 4.8vw, 4rem); line-height: 1.06; }
+
+/* Faixa de imagem inteira: metade foto, metade declaracao */
+.fullbleed {
+    display: grid; grid-template-columns: 1fr 1fr; align-items: stretch;
+    background: linear-gradient(150deg, var(--color-dark) 0%, var(--color-dark-2) 100%);
+    position: relative; overflow: hidden;
+}
+.fullbleed-media { margin: 0; position: relative; min-height: 62vh; }
+.fullbleed-media img { width: 100%; height: 100%; object-fit: cover; object-position: center 22%; display: block; }
+.fullbleed-media::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(90deg, var(--color-dark) 0%, rgba(13,27,62,0.35) 30%, rgba(13,27,62,0) 62%);
+}
+.fullbleed-text {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: clamp(3rem, 7vw, 7rem) clamp(1.75rem, 5vw, 5.5rem);
+}
+.fullbleed-text .eyebrow { color: var(--color-accent); margin-bottom: 1.5rem; }
+.fullbleed-title {
+    font-family: var(--font-serif); font-weight: 300; color: var(--color-white);
+    font-size: clamp(2rem, 4.2vw, 3.5rem); line-height: 1.12; letter-spacing: -0.01em;
+    margin-bottom: 1.75rem;
+}
+.fullbleed-title em { font-style: italic; font-weight: 400; color: var(--color-accent-light); }
+.fullbleed-sub { color: var(--color-white-80); font-size: clamp(1rem,1.5vw,1.12rem); line-height: 1.75; max-width: 42ch; font-weight: 300; }
+@media (max-width: 900px) {
+    .fullbleed { grid-template-columns: 1fr; }
+    .fullbleed-media { min-height: 52vh; }
+    .fullbleed-media::after { background: linear-gradient(180deg, rgba(13,27,62,0) 45%, var(--color-dark) 100%); }
+}
