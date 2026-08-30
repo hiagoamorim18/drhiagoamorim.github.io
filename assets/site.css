@@ -1117,3 +1117,61 @@ a.about-photo-tag:hover { filter: brightness(1.15); }
     .fullbleed-media { min-height: 52vh; }
     .fullbleed-media::after { background: linear-gradient(180deg, rgba(13,27,62,0) 45%, var(--color-dark) 100%); }
 }
+
+
+/* === DISPLAY INSTRUMENT SERIF — 30/08/2026 ==========================
+   Papel que faltava: a serifa de display de contraste altissimo, que e o que
+   da a assinatura da referencia em tamanho grande. Analoga livre da PP
+   Editorial New; +65KB contra ~US$120 de licenca. Newsreader continua como
+   serifa de TEXTO e Hanken Grotesk como sans — as tres funcoes cobertas. */
+:root { --font-display: 'Instrument Serif', 'Newsreader', Georgia, serif; }
+
+.hero-title, .editorial-title, .fullbleed-title, .section-title {
+    font-family: var(--font-display);
+    font-weight: 400;            /* Instrument Serif ja e fina por desenho */
+    letter-spacing: -0.015em;
+}
+.hero-title { line-height: 1.02; }
+.editorial-title { line-height: 1.0; }
+/* o italico da Instrument Serif e o destaque — mantem o coral da marca */
+.hero-title em, .editorial-title em, .fullbleed-title em, .section-title em {
+    font-family: var(--font-display); font-style: italic; font-weight: 400;
+}
+
+/* Faixa invertida: foto a direita. A referencia alterna os lados. */
+.fullbleed--rev { direction: rtl; }
+.fullbleed--rev > * { direction: ltr; }
+.fullbleed--rev .fullbleed-media::after {
+    background: linear-gradient(270deg, var(--color-dark) 0%, rgba(13,27,62,0.35) 30%, rgba(13,27,62,0) 62%);
+}
+@media (max-width: 900px) {
+    .fullbleed--rev { direction: ltr; }
+    .fullbleed--rev .fullbleed-media::after {
+        background: linear-gradient(180deg, rgba(13,27,62,0) 45%, var(--color-dark) 100%);
+    }
+}
+
+
+/* === DISPLAY: Instrument Serif — 30/08/2026 ==========================
+   O papel que faltava: serifa de display de contraste altissimo, analoga
+   gratuita da PP Editorial New da referencia. +65KB, contra ~US$120 de
+   licenca. ⛔ NAO e Playfair, que ele rejeitou por "parecer feito por IA".
+   Usada SO em tamanho grande — em corpo de texto ela nao funciona. */
+:root { --font-display: 'Instrument Serif', 'Newsreader', Georgia, serif; }
+
+.hero-title,
+.editorial-title,
+.section-title,
+.fullbleed-title {
+    font-family: var(--font-display);
+    font-weight: 400;          /* a Instrument Serif tem um peso so */
+    letter-spacing: -0.015em;
+}
+/* Ela ja e fina por desenho: sem o peso 300 o texto some */
+.hero-title em, .editorial-title em, .section-title em, .fullbleed-title em {
+    font-style: italic; font-weight: 400;
+}
+/* Tamanhos sobem de novo: display de alto contraste aguenta mais escala */
+.hero-title      { font-size: clamp(3.1rem, 7.4vw, 6rem); line-height: 1.02; }
+.editorial-title { font-size: clamp(2.8rem, 6vw, 5.6rem); }
+.section-title   { font-size: clamp(2.4rem, 5.2vw, 4.4rem); }
