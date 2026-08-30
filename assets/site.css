@@ -922,3 +922,43 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 }
 .locality-link:hover, .locality-link:focus-visible { color: var(--color-text); }
 .locality-link svg { width: 15px; height: 15px; flex: 0 0 auto; }
+
+
+/* ===== HERO 30/08/2026 — credencial + corpo editorial =====
+   Bloco de credencial: art. 4o, II c/c art. 6o da Res. CFM 2.336/2023.
+   O RQE tem de ser TEXTO SELECIONAVEL (nunca imagem) e a linha 1 nao pode
+   quebrar entre "Nutrologo" e "RQE 6806" — dai o .nb com white-space: nowrap. */
+.hero-cred {
+    font-size: 0.72rem; letter-spacing: 0.06em; line-height: 1.95;
+    color: var(--color-white-60); margin-bottom: 2.25rem; max-width: 560px;
+    animation: fadeInDown 0.8s ease both;
+}
+.hero-cred strong { color: var(--color-white); font-weight: 500; letter-spacing: 0.08em; }
+.hero-cred .nb { white-space: nowrap; }
+
+.hero-body {
+    max-width: 560px; margin: 0 0 2.25rem;
+    animation: fadeInUp 0.8s ease 0.4s both;
+}
+.hero-body p {
+    font-size: clamp(0.98rem, 1.5vw, 1.08rem); font-weight: 300;
+    color: var(--color-white-80); line-height: 1.75; margin-bottom: 1.2rem;
+}
+.hero-body p:last-child { margin-bottom: 0; }
+.hero-body p.hero-lede {
+    font-family: var(--font-serif); font-style: italic; font-weight: 300;
+    font-size: clamp(1.25rem, 2.2vw, 1.55rem);
+    color: var(--color-white); line-height: 1.4; margin-bottom: 1.5rem;
+}
+.hero-body p.hero-list { color: var(--color-white); line-height: 2; }
+.hero-body em { font-style: normal; color: var(--color-accent-light); }
+
+@media (min-width: 1025px) {
+    .hero .hero-cred, .hero .hero-body { max-width: 520px; }
+    .hero .hero-title { max-width: 560px; }
+}
+@media (max-width: 640px) {
+    .hero-cred { font-size: 0.66rem; letter-spacing: 0.04em; margin-bottom: 1.75rem; }
+    .hero-body p { font-size: 0.97rem; }
+    .hero-body p.hero-list { line-height: 1.85; }
+}
