@@ -995,3 +995,50 @@ a.about-photo-tag:hover { filter: brightness(1.15); }
 /* O icone do WhatsApp usa o verde da propria marca (#25D366), definido no SVG.
    Esta regra impede que uma cor herdada sobrescreva o stroke do icone. */
 .locality-link svg, .contact-channel svg { color: inherit; }
+
+
+/* === CANAIS DE AGENDAMENTO + SIMBOLO NO LOADER — 30/08/2026 ==========
+   O card de horarios fixos saiu: os horarios de cada unidade sao confirmados
+   com a clinica, entao publicar "14h 15h 16h 17h" era afirmar o que nao se
+   sabe. No lugar, os tres canais na ordem definida por ele:
+   telemedicina -> Sao Luis (presencial e online) -> Coroata (presencial).
+   Linguagem visual identica ao card que ja existia: coral a 8% sobre navy. */
+.canais { display: flex; flex-direction: column; gap: 1.35rem; }
+.canal { padding-bottom: 1.35rem; border-bottom: 1px solid rgba(212,137,108,0.18); }
+.canal:last-of-type { border-bottom: none; padding-bottom: 0; }
+.canal-rot {
+    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.11em;
+    text-transform: uppercase; color: var(--color-accent); margin-bottom: 0.45rem;
+}
+.canal-desc { font-size: 0.9rem; color: var(--color-white); line-height: 1.55; margin-bottom: 0.35rem; }
+.canal-nota { font-size: 0.82rem; color: var(--color-white-60); line-height: 1.55; margin-bottom: 0.55rem; }
+.canal-nota strong { color: var(--color-white-80); font-weight: 600; }
+.canal-link {
+    display: inline-block; font-size: 0.85rem; font-weight: 600;
+    color: var(--color-accent); text-decoration: none; transition: var(--transition);
+}
+.canal-link:hover { color: var(--color-accent-light); letter-spacing: 0.02em; }
+.canal-aviso {
+    margin-top: 0.25rem; font-size: 0.78rem; line-height: 1.6;
+    color: var(--color-white-60); font-style: italic;
+}
+
+/* Sem o mapa, a coluna do contato deixa de ser 1fr 1fr */
+.contact-grid { grid-template-columns: 1fr 1fr; }
+
+/* O simbolo da marca abre a transicao, antes do nome */
+.loader-simbolo {
+    width: 34px; height: 63px; display: block; margin: 0 auto 1.1rem;
+    animation: fadeInDown 0.7s ease both;
+}
+@media (max-width: 600px) { .loader-simbolo { width: 28px; height: 52px; } }
+
+
+/* === MARCA: o simbolo entra onde so havia texto — 30/08/2026 ===
+   Os 9 logos da identidade existiam e o site nao usava nenhum. O simbolo
+   (dois circulos, gradiente coral) vai inline: 0 requisicao, escala sem perda. */
+.marca-simbolo { width: 15px; height: 28px; display: block; flex-shrink: 0; }
+.marca-simbolo--ft { width: 18px; height: 33px; }
+.nav-logo { display: inline-flex; align-items: center; gap: 0.6rem; }
+.footer-logo { display: flex; align-items: center; gap: 0.7rem; }
+@media (max-width: 600px) { .marca-simbolo { width: 13px; height: 24px; } }
